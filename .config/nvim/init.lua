@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Spellchecking
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = "en_us,el"
 vim.opt.spell = true
 
 -- Vim movement in Greek language
