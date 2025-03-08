@@ -26,8 +26,10 @@
         "clock#date",
         "clock#time",
 		"hyprland/language",
+		"idle_inhibitor",
 		"tray",
     ],
+
 
 // -------------------------------------------------------------------------
 // Modules
@@ -130,9 +132,13 @@
 		"format-gr": " | GR ",
 	},
 
-	"hyprland/submap": {
-		"format": " ✌️ ",
-		"max-length": 8,
-		"tooltip": false
-	}
+	"idle_inhibitor": { 
+		"format": "| {icon}  |", 
+		"format-icons": { 
+			"activated": "\uf06e", 
+			"deactivated": "\uf070" 
+		} 
+	},
+
 }
+	
