@@ -21,7 +21,6 @@ then
 elif [ "$SelectedProfile" == "$BatterySaving" ]
 then
 	powerprofilesctl set power-saver
-	echo "Hello"
 	dunstify "Profile changed to $SelectedProfile"
 fi
 
