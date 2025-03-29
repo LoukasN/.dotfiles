@@ -9,6 +9,7 @@ return {
 			quickfile = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
+			explorer = { enabled = true },
 			dashboard = {
 				enabled = true,
 				sections = {
@@ -20,4 +21,6 @@ return {
 			},
 		},
 	},
+	vim.keymap.set("n", "<leader>n", "<cmd>lua Snacks.explorer()<CR>", { desc = "Open file explorer" }),
+	vim.keymap.set("n", "<leader>lg", "<cmd>lua Snacks.lazygit()<CR>", { desc = "Open lazygit" }),
 }
