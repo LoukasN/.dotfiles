@@ -1,7 +1,7 @@
 return {
+
 	{
-		-- Replace surrounding pairs
-		"echasnovski/mini.surround",
+		"echasnovski/mini.nvim",
 		version = false,
 		config = function()
 			require("mini.surround").setup({
@@ -18,13 +18,8 @@ return {
 					suffix_next = "n", -- Suffix to search with "next" method
 				},
 			})
+			require("mini.comment").setup{}
+			require("mini.icons").setup{}
 		end,
 	},
-
-	{
-		-- Icons
-		"echasnovski/mini.icons",
-		version = false,
-	},
-
 }
