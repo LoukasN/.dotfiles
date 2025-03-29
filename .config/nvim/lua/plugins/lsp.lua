@@ -84,14 +84,11 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to references" })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Available code actions" })
+			vim.keymap.set("n", "<leader>gd", require('telescope.builtin').lsp_definitions, { desc = "Go to definition" })
+			vim.keymap.set("n", "<leader>gi", require('telescope.builtin').lsp_implementations, { desc = "Go to implementation" })
+			vim.keymap.set("n", "<leader>gr", require('telescope.builtin').lsp_references, { desc = "Go to references" })
+			vim.keymap.set("n", "<leader>ds", require('telescope.builtin').lsp_document_symbols, { desc = "Document symbols" })
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
-			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 			vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, { desc = "Show information" })
 		end,
