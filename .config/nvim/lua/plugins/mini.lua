@@ -18,8 +18,8 @@ return {
 					suffix_next = "n", -- Suffix to search with "next" method
 				},
 			})
-			require("mini.comment").setup{}
-			require("mini.icons").setup{}
+			require("mini.comment").setup({})
+			require("mini.icons").setup({})
 		end,
 	},
 }
