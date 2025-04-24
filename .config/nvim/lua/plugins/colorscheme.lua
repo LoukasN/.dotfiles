@@ -17,7 +17,7 @@ return {
 					mini = true,
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 
@@ -47,7 +47,6 @@ return {
 		enabled = true,
 		config = function()
 			require("tokyonight").setup({
-				-- transparent = true,
 				transparent = false,
 				-- style = "moon",
 				style = "storm",
@@ -55,6 +54,21 @@ return {
 				-- style = "day",
 			})
 			-- vim.cmd.colorscheme("tokyonight")
+		end,
+	},
+
+	{
+		"rebelot/kanagawa.nvim",
+		priority = 1000,
+		enabled = true,
+		config = function()
+			require("kanagawa").setup({
+				transparent = false,
+			})
+			-- vim.cmd.colorscheme("kanagawa")
+			-- vim.cmd.colorscheme("kanagawa-wave")
+			vim.cmd.colorscheme("kanagawa-dragon")
+			-- vim.cmd.colorscheme("kanagawa-lotus")
 		end,
 	},
 }
