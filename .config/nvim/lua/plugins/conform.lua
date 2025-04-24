@@ -23,7 +23,6 @@ return {
 				html = { "prettier" },
 				markdown = { "prettier" },
 				sql = { "sqlfmt" },
-				typst = { "typstfmt" },
 				bash = { "beautysh" },
 			},
 		})
