@@ -34,9 +34,6 @@ return {
 			},
 		},
 		config = function()
-			-- If using cmp_nvim
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			-- If using blink
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
@@ -76,6 +73,7 @@ return {
 			lspconfig.tinymist.setup({
 				capabilities = capabilities,
 				offset_encoding = "utf-8",
+				formatterMode = "typstyle",
 			})
 			lspconfig.taplo.setup({
 				capabilities = capabilities,
@@ -84,10 +82,11 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.keymap.set("n", "<leader>gd", require('telescope.builtin').lsp_definitions, { desc = "Go to definition" })
-			vim.keymap.set("n", "<leader>gi", require('telescope.builtin').lsp_implementations, { desc = "Go to implementation" })
-			vim.keymap.set("n", "<leader>gr", require('telescope.builtin').lsp_references, { desc = "Go to references" })
+			vim.keymap.set("n", "gd", require('telescope.builtin').lsp_definitions, { desc = "Go to definition" })
+			vim.keymap.set("n", "gi", require('telescope.builtin').lsp_implementations, { desc = "Go to implementation" })
+			vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, { desc = "Go to references" })
 			vim.keymap.set("n", "<leader>ds", require('telescope.builtin').lsp_document_symbols, { desc = "Document symbols" })
+			vim.keymap.set("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", {desc = "Code actions"})
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 			vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, { desc = "Show information" })
