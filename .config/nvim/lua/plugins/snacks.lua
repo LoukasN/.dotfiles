@@ -8,7 +8,6 @@ return {
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
 			statuscolumn = { enabled = true },
-			words = { enabled = true },
 			explorer = { enabled = true },
 			dashboard = {
 				enabled = true,
