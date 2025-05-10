@@ -3,10 +3,8 @@
 * {
     border: none;
 	border-radius: 0;
-	/*font-family: JetBrainsMonoNL Nerd Font;*/
 	font-family: Hack Nerd Font;
-	/*font-family: CaskaydiaCove Nerd Font;*/
-	color: white;
+	color: #C5C9C5;
 	font-size: 14px;
 	min-height: 0;
 	font-weight: bold;
@@ -18,7 +16,7 @@
 }
 
 window#waybar {
-	background: #000000;
+	background: #181616;
 }
 
 window#waybar.hidden {
@@ -39,8 +37,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    /*background-color: #646464;*/
-	border-bottom: 3px solid #E34234;
+	border-bottom: 3px solid #ff5148;
 }
 
 #workspace button.focused {
@@ -59,7 +56,7 @@ window#waybar.hidden {
 /*Tooltip*/
 
 tooltip label {
-	background-color: #000000;
+	background-color: #181616;
 	padding-right: 5px;
 	padding-left: 5px;
 	padding-top: 2px;
@@ -68,7 +65,7 @@ tooltip label {
 }
 
 label:focus {
-	background-color: #000000;
+	background-color: #181616;
 }
 
 /* Modules */
