@@ -1,89 +1,87 @@
 #!/bin/bash
 
-EssentialPackages=("kitty" "rofi-wayland" "neovim" "ly" "mako" "zsh" w"aybar" "papirus-icon-theme" "zoxide" "hyprland" "swaybg" "slurp" "grim" "sway")
-OptionalPackages=("pcmanfm" "ranger" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep")
-Fonts=("ttf-dejavu-nerd" "ttf-hack-nerd" "ttf-jetbrains-mono-nerd" "ttf-martian-mono-nerd" "wqy-microhei" "noto-fonts")
+EssentialPackages=(
+	"kitty" "rofi-wayland" "neovim" "ly" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "swaybg" "slurp" "grim" "sway"
+)
+
+OptionalPackages=(
+	"pcmanfm" "ranger" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
+)
+
+Fonts=(
+	"ttf-nerd-fonts-symbols ttf-dejavu-nerd" "ttf-hack-nerd" "ttf-jetbrains-mono-nerd" "ttf-martian-mono-nerd" "wqy-microhei" "noto-fonts"
+)
+
+ConfigDirs=(
+	"alacritty" "dunst" "hypr" "i3" "i3status" "kitty" "nvim" "picom" "ranger" "rofi" "sway" "tmux/plugins" "waybar" "zsh/plugins"
+)
 
 # needed skips installed and up-to-date
 # noconfirm removes confirmation
 PackageManager="pacman --needed --noconfirm -S"
 
-function MakeDir {
-	DirName="$1"
-	if [[ ! -d "$DirName" ]]; then
-		echo "Adding $DirName"
-		mkdir -p "$DirName"
-	fi
-}
-
 function InstallApps {
 	for package in "$@"; do
-		sudo $PackageManager "$package"
+		sudo bash -c "$PackageManager $package"
 	done
 }
 
-echo "-----------------------"
-echo "Starting install script"
-echo "-----------------------"
-echo
+printf "-----------------------\n"
+printf "Starting install script\n"
+printf "-----------------------\n\n"
 
 # Directories
-echo "- Creating .config directories"
-MakeDir "$HOME/.config/alacritty"
-MakeDir "$HOME/.config/dunst"
-MakeDir "$HOME/.config/hypr"
-MakeDir "$HOME/.config/i3"
-MakeDir "$HOME/.config/i3status"
-MakeDir "$HOME/.config/kitty"
-MakeDir "$HOME/.config/nvim"
-MakeDir "$HOME/.config/picom"
-MakeDir "$HOME/.config/ranger"
-MakeDir "$HOME/.config/rofi"
-MakeDir "$HOME/.config/sway"
-MakeDir "$HOME/.config/tmux/plugins"
-MakeDir "$HOME/.config/waybar"
-MakeDir "$HOME/.config/zsh/plugins"
-MakeDir "$HOME/.local/share"
-MakeDir "$HOME/Pictures/wallpapers"
+printf "- Creating directories in .config\n"
+for dir in "${ConfigDirs[@]}"; do
+	mkdir -p "$HOME/.config/$dir"
+done
+mkdir -p "$HOME/.local/share"
+mkdir -p "$HOME/Pictures/wallpapers"
 
 # Packages
-echo "Installing applications"
+printf "Updating system packages\n"
+sudo pacman -Syu --noconfirm
+printf "Installing packages\n"
 InstallApps "${EssentialPackages[@]}"
 while true; do
 	read -p "Do you want to install optional packages? (y/n)" confirmation
 	if [[ $confirmation =~ ^[yY]$ ]]; then
-		echo "Installing optional packages"	
+		printf "Installing optional packages\n"	
 		InstallApps "${OptionalPackages[@]}"
 		break
 	elif [[ $confirmation =~ ^[nN]$ ]]; then
-		echo "Not installing optional packages"
+		printf "Not installing optional packages\n"
 		break
 	else
-		echo "Invalid input. Enter 'y' or 'n'"
+		printf "Invalid input. Enter 'y' or 'n'\n"
 	fi
 done
-echo "Installing fonts"
+printf "Installing fonts\n"
 InstallApps "${Fonts[@]}"
 
 # PowerLevel10k
-echo "- Installing powerlevel10k from git into GitApps directory"
-if [[ ! -d "~/GitApps" ]]; then
-	mkdir ~/GitApps
+printf "- Installing powerlevel10k from git into GitApps directory\n"
+if [[ ! -d "$HOME/GitApps" ]]; then
+	mkdir -p ~/GitApps
 fi
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/GitApps/powerlevel10k
 
 # Stow
 InstallApps "stow"
-echo "- Using stow for the dotfiles"
-cd .dotfiles
-stow --adopt .
+printf "- Using stow for configurations\n"
+if [[ -d ".dotfiles" ]]; then
+	cd ".dotfiles" || exit
+	stow --adopt .
+else
+	printf ".dotfiles directory not found\n"
+fi
 
 # Change the shell
 if [[ $SHELL =~ /zsh$ ]]; then
-	echo "- Shell is alredy set to zsh"
+	printf "- Shell is already set to zsh\n"
 else
-	echo "- Changing user shell to zsh"
-	chsh --shell "/usr/bin/zsh" $USER
+	printf "- Changing user shell to zsh\n"
+	chsh --shell "$(which zsh)" "$USER"
 fi
 
 # Enabling login manager
@@ -104,10 +102,10 @@ if [[ $displayManager != "ly" ]]; then
 			# Else exit
 			break
 		else
-			echo "Invalid input. Enter 'y' or 'n'"
+			printf "Invalid input. Enter 'y' or 'n'\n"
 		fi
 	done
 fi
 
-echo "- Script is finished"
-echo "-- Please logout out and log back in"
+printf "-- Script is done. Please log out and log back in for the changes to take effect :)\n"
+exit 0
