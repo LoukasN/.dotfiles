@@ -46,5 +46,10 @@ eval "$(zoxide init --cmd cd zsh)"
 # Fzf
 source <(fzf --zsh)
 
+# Add ~/.local/bin to path
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
