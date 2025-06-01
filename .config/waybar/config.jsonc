@@ -3,33 +3,40 @@
 // General
 // -------------------------------------------------------------------------
 
-    "layer": "top",
-    "position": "top",
-    "height": 25,
+	"layer": "top",
+	"position": "top",
+	"height": 25,
 
-    "modules-left": [
-        "sway/workspaces",
+	"modules-left": [
+		"sway/workspaces",
 		"hyprland/workspaces",
 		"hyprland/submap",
 		"hyprland/window",
 		"sway/window"
-    ],
+	],
 
-    "modules-center": [ ],
+	"modules-center": [],
 
-    "modules-right": [
+	"modules-right": [
 		"backlight",
+		"custom/divider",
 		"pulseaudio#output",
 		"pulseaudio#input",
-        "network",
-        "battery",
-        "clock#date",
-        "clock#time",
+		"custom/divider",
+		"network",
+		"custom/divider",
+		"battery",
+		"custom/divider",
+		"clock#date",
+		"custom/divider",
+		"clock#time",
+		"custom/divider",
 		"hyprland/language",
+		"custom/divider",
 		"idle_inhibitor",
+		"custom/divider",
 		"tray",
     ],
-
 
 // -------------------------------------------------------------------------
 // Modules
@@ -41,11 +48,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "   {icon}  {capacity}% ", 
-        "format-discharging": " {icon}  {capacity}% ",
+        "format": "  {icon}  {capacity}%", 
+        "format-discharging": "{icon}  {capacity}%",
         "format-icons": [
-            "", // Icon: battery-full
-            "", // Icon: battery-three-quarters
+            "", // Icon: battery-full "", // Icon: battery-three-quarters
             "", // Icon: battery-half
             "", // Icon: battery-quarter
             ""  // Icon: battery-empty
@@ -55,22 +61,22 @@
 
     "clock#time": {
         "interval": 1,
-        "format": " {:%H:%M:%S}",
+        "format": "{:%H:%M:%S}",
 		"timezone": "Europe/Athens",
         "tooltip": false
     },
 
     "clock#date": {
       "interval": 10,
-      "format": "| {:%d/%m/%Y} |", 
+      "format": "{:%d/%m/%Y}", 
       "tooltip-format": "{:%e %B %Y}"
     },
 
      "network": {
         "interval": 5,
-        "format-wifi": "|   {essid} ({signalStrength}%) |", 
-        "format-ethernet": "| 󰈀  {ifname} |", 
-        "format-disconnected": "| ⚠  Disconnected |",
+        "format-wifi": "  {essid} ({signalStrength}%)", 
+        "format-ethernet": "󰈀  {ifname}", 
+        "format-disconnected": "⚠  Disconnected",
 		"family": "ipv4",
         "tooltip-format": "{ifname}: {ipaddr}",
 	    "on-click": "nm-applet"
@@ -88,9 +94,9 @@
 
 	"pulseaudio#output": {
 	    "scroll-step": 1,
-	    "format": " {icon} {volume}% ",
-	    "format-bluetooth": " {icon} {volume}%  ",
-	    "format-muted": "  {volume}% ",
+	    "format": "{icon} {volume}%",
+	    "format-bluetooth": "{icon} {volume}% ",
+	    "format-muted": " {volume}%",
 	    "format-icons": {
 	        "headphones": "",
 	        "handsfree": "",
@@ -108,7 +114,7 @@
 	"pulseaudio#input": {
 		"scroll-step": 1,
 		"format": "{format_source}",
-		"format-source": " ",
+		"format-source": "",
 		"format-source-muted": " ",
 		"smooth-scrolling-threshold": 1,
 		"max-volume": 100,
@@ -117,7 +123,7 @@
 
 	"backlight": {
 		"device": "intel_backlight",
-		"format": "  {percent}% |",
+		"format": " {percent}%",
 		"tooltip": false,
 	},
 
@@ -129,17 +135,22 @@
 
 	"hyprland/language": {
 		"format": "{}",
-		"format-en": " | EN ",
-		"format-gr": " | GR ",
+		"format-en": "EN",
+		"format-gr": "GR",
 	},
 
 	"idle_inhibitor": { 
-		"format": "| {icon}  ", 
+		"format": "{icon} ", 
 		"format-icons": { 
 			"activated": "\uf06e", 
 			"deactivated": "\uf070" 
 		} 
 	},
+
+	"custom/divider": {
+		"format": " | ",
+		"tooltip": false,
+	}
 
 }
 	
