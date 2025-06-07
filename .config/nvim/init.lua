@@ -4,7 +4,8 @@ require("config.keymaps")
 require("config.lazy")
 
 -- Enables numbers
-vim.opt.nu = true vim.opt.relativenumber = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
 -- Disables swap
 vim.opt.swapfile = false
