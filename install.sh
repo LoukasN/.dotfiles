@@ -9,7 +9,7 @@ OptionalPackages=(
 )
 
 Fonts=(
-	"ttf-nerd-fonts-symbols ttf-dejavu-nerd" "ttf-hack-nerd" "ttf-jetbrains-mono-nerd" "ttf-martian-mono-nerd" "wqy-microhei" "noto-fonts"
+	"ttf-nerd-fonts-symbols ttf-dejavu-nerd" "ttf-hack-nerd" "ttf-jetbrains-mono-nerd" "ttf-martian-mono-nerd" "wqy-microhei" "noto-fonts" "ttf-ibmplex-mono-nerd"
 )
 
 ConfigDirs=(
