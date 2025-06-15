@@ -10,6 +10,7 @@ gtk-titlebar = false
 gtk-adwaita = false
 bold-is-bright = true
 resize-overlay = never
+shell-integration-features = no-cursor, no-sudo
 
 keybind = unconsumed:alt+five=goto_tab:5
 keybind = unconsumed:alt+eight=goto_tab:8
