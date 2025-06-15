@@ -51,7 +51,8 @@
         "format": "  {icon}  {capacity}%", 
         "format-discharging": "{icon}  {capacity}%",
         "format-icons": [
-            "", // Icon: battery-full "", // Icon: battery-three-quarters
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
             "", // Icon: battery-half
             "", // Icon: battery-quarter
             ""  // Icon: battery-empty
@@ -76,7 +77,7 @@
         "interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", 
         "format-ethernet": "󰈀  {ifname}", 
-        "format-disconnected": "⚠  Disconnected",
+        "format-disconnected": "⚠ Disconnected",
 		"family": "ipv4",
         "tooltip-format": "{ifname}: {ipaddr}",
 	    "on-click": "nm-applet"
@@ -101,9 +102,6 @@
 	        "headphones": "",
 	        "handsfree": "",
 	        "headset": "",
-	        "phone": "",
-	        "portable": "",
-	        "car": "",
 	        "default": ["", " "]
 	    },
 		"smooth-scrolling-threshold": 1,
