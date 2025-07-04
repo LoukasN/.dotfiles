@@ -24,6 +24,7 @@ return {
 				markdown = { "prettier" },
 				sql = { "sqlfmt" },
 				bash = { "beautysh" },
+                ruby = { "rubyfmt" },
 			},
 		})
 	end,

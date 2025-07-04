@@ -81,6 +81,9 @@ return {
 			lspconfig.matlab_ls.setup({
 				capabilities = capabilities,
 			})
+            lspconfig.ruby_lsp.setup({
+				capabilities = capabilities,
+            })
 
 			vim.keymap.set("n", "gd", require('telescope.builtin').lsp_definitions, { desc = "Go to definition" })
 			vim.keymap.set("n", "gi", require('telescope.builtin').lsp_implementations, { desc = "Go to implementation" })
