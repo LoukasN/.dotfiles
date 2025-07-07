@@ -3,7 +3,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Hack Nerd Font;
+  font-family: JetBrainsMono Nerd Font propo;
   color: #c5c9c5;
   font-size: 14px;
   min-height: 0;
@@ -100,6 +100,14 @@ tooltip label {
   padding-bottom: 2px;
 }
 
+#network.disconnected {
+  color: red;
+}
+
+#network.disabled{
+  color: red;
+}
+
 #battery {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -126,10 +134,6 @@ tooltip label {
 #battery.critical.discharging {
   animation-name: blink-critical;
   animation-duration: 10s;
-}
-
-#network.disconnected {
-  color: red;
 }
 
 #clock {

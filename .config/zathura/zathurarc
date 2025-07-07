@@ -5,7 +5,7 @@ set zoom-min 10
 set guioptions ""
 
 # # zathurarc-dark
-# set font "martialMono 12"
+# set font "martianMono 12"
 # set default-bg "#000000" #00
 # set default-fg "#F7F7F6" #01
 #
