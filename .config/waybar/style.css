@@ -46,7 +46,6 @@ window#waybar.hidden {
 /*Tooltip*/
 
 tooltip label {
-  background-color: #181616;
   padding-right: 5px;
   padding-left: 5px;
   padding-top: 2px;
