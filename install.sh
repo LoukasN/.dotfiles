@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 EssentialPackages=(
 	"kitty" "rofi-wayland" "neovim" "ly" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "swaybg" "slurp" "grim" "sway"

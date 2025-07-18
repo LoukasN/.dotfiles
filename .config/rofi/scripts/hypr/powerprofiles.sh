@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CurrentProfile=$(powerprofilesctl get)
 SelectedProfile=$CurrentProfile

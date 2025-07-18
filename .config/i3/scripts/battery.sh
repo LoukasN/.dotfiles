@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BAT=$(acpi -b | grep -E -o '[0-9][0-9]%')
 SINGLE_DIGIT_BAT=$(acpi -b | grep -E -o '[0-9]%')

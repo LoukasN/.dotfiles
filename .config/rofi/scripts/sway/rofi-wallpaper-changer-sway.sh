@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 dir="/home/$USER/Pictures/wallpapers/" # Wallpaper directory
 ConfigFile="/home/$USER/.config/sway/config" # The config for the script to write to
 mode="fill"	# The mode that the image will be scaled

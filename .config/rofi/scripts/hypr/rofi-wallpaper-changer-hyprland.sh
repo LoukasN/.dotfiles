@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WallpaperDir="/home/$USER/Pictures/wallpapers/" # Wallpaper dir
 ConfigLocation="/home/$USER/.config/hypr/autostart.conf" # The config file to edit

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 dir="/home/$USER/Pictures/wallpapers/" # Wallpaper directory
 wallpaper="none" 
 command="exec_always --no-startup-id sleep 1 && feh --bg-fill" # what command is writen in the configm

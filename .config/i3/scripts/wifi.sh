@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Getting the wifi card id 
 DEVICE=$(nmcli d | grep wifi | cut -d ' ' -f 1)

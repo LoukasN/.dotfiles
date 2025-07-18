@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 maxlen=0
 if [[ $1 ]]; then
