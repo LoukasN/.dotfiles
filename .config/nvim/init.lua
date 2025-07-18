@@ -43,7 +43,7 @@ vim.o.expandtab = true
 vim.cmd("set cursorline")
 
 -- Use system clipboard
-vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus"
 
 -- Set to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
