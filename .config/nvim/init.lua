@@ -14,7 +14,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Sets undo folder
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.opt.undofile = true
 
 -- Disables highlighting search and enables incremental search
@@ -23,6 +23,9 @@ vim.opt.incsearch = true
 
 -- Colors
 vim.opt.termguicolors = true
+
+-- Borders
+vim.o.winborder = "rounded"
 
 -- Visible lines before scrolling
 vim.opt.scrolloff = 12
