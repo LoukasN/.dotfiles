@@ -103,7 +103,7 @@
             "headphones": "",
             "handsfree": "",
             "headset": "",
-            "default": ["", " "]
+            "default": ["", ""]
         },
         "smooth-scrolling-threshold": 1,
         "max-volume": 100,
