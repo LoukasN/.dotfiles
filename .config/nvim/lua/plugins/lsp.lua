@@ -73,7 +73,7 @@ return {
 			lspconfig.tinymist.setup({
 				capabilities = capabilities,
 				offset_encoding = "utf-8",
-				formatterMode = "typstyle",
+                formatterMode = "typstyle"
 			})
 			lspconfig.taplo.setup({
 				capabilities = capabilities,
