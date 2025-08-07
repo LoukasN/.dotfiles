@@ -19,6 +19,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt hist_ignore_space
 
 # Keybinds
 bindkey -e
@@ -39,6 +40,9 @@ source ~/GitApps/powerlevel10k/powerlevel10k.zsh-theme
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+# Autosuggest config
+bindkey '^y' autosuggest-accept
 
 # Jump
 eval "$(zoxide init --cmd cd zsh)"
