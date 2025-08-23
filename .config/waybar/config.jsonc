@@ -49,13 +49,13 @@
             "critical": 15
         },
         "format": " {icon} {capacity}%", 
-        "format-discharging": "{icon}  {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
         "format-icons": [
-            "", // Icon: battery-full
-            "", // Icon: battery-three-quarters
-            "", // Icon: battery-half
-            "", // Icon: battery-quarter
-            ""  // Icon: battery-empty
+            "",
+            "",
+            "",
+            "",
+            "" 
         ],
         "tooltip": true
     },
@@ -64,7 +64,8 @@
         "interval": 1,
         "format": "{:%H:%M:%S}",
         "timezone": "Europe/Athens",
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "{:%Z}"
     },
 
     "clock#date": {
@@ -150,6 +151,4 @@
         "format": " | ",
         "tooltip": false,
     }
-
 }
-
