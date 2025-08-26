@@ -8,7 +8,7 @@ export EDITOR=nvim
 alias nv="nvim"
 alias ls="ls --color=auto"
 alias ll="ls -lav --ignore=.. --ignore=."
-alias lf="ranger"
+alias lf="yazi"
 alias :q="exit"
 alias wifi-password="nmcli device wifi show-password ifname wlp3s0"
 alias system="fastfetch"
