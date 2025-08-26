@@ -23,7 +23,10 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(zoxide query --interactive)
+    selected=$(find ~/Documents ~/Documents/Uni/ ~/.dotfiles/ -mindepth 1 -maxdepth 2 -type d \
+        | sed "s|^$HOME/||" \
+        | fzf)
+    selected=$HOME/$selected
 fi
 
 if [[ -z $selected ]]; then
