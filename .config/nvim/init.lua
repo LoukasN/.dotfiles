@@ -25,7 +25,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 -- Borders
-vim.o.winborder = "rounded"
+vim.opt.winborder = "rounded"
 
 -- Visible lines before scrolling
 vim.opt.scrolloff = 12
