@@ -28,10 +28,10 @@ return {
 		config = function()
 			require("nightfox").setup({
 				options = {
-					transparent = false,
+					transparent = true,
 				},
 			})
-			-- vim.cmd.colorscheme("carbonfox")
+			vim.cmd.colorscheme("carbonfox")
 			-- vim.cmd.colorscheme("dawnfox")
 			-- vim.cmd.colorscheme("dayfox")
 			-- vim.cmd.colorscheme("duskfox")
@@ -103,7 +103,7 @@ return {
 			})
 			-- vim.cmd.colorscheme("kanagawa")
 			-- vim.cmd.colorscheme("kanagawa-wave")
-			vim.cmd.colorscheme("kanagawa-dragon")
+			-- vim.cmd.colorscheme("kanagawa-dragon")
 			-- vim.cmd.colorscheme("kanagawa-lotus")
 		end,
 	},
