@@ -16,7 +16,7 @@ return {
 				"clangd",
 				"bashls",
 			},
-			auto_install = true,
+			auto_install = false,
 		},
 	},
 	{
