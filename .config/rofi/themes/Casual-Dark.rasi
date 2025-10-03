@@ -1,0 +1,61 @@
+* {
+    foreground: #c5c9c5; 
+    background: #000000;
+    selected-foreground: #ffffff;
+    selected-background:  #181617;
+    border-color: #181616;
+    background-color: @background;
+}
+
+window {
+    background-color: @background;
+    border: 4;
+    padding: 6;
+    border-radius: 4;
+}
+
+listview {
+    scrollbar: false;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element.normal{
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+element.selected {
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
+}
+
+inputbar {
+    text-color: @foreground;
+    padding:    4;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+entry {
+    text-color: @foreground;
+}
+
+prompt {
+    text-color: @foreground;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        ": ";
+    text-color: @foreground;
+}
+
+configuration {
+    font:         "JetBrainsMonoNerdFont 16";
+    display-drun: "Open";
+    icon-theme:   "Papirus-Dark";
+    show-icons:   true;
+}

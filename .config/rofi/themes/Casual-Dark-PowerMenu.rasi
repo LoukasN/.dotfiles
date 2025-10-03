@@ -1,0 +1,25 @@
+@import "~/.config/rofi/themes/Casual-Dark.rasi"
+
+configuration {
+	show-icons: false;
+}
+
+window {
+	border-color:     #FFFFFF;
+    background-color: @background;
+    border:           1;
+    padding:          6;
+    transparency:     "real";
+    width:            148px;
+    location:         northeast;
+}
+
+listview {
+    lines:     5;
+    columns:   1;
+}
+
+/*removes the text input line*/
+mainbox {
+  children: [listview];
+}

@@ -1,0 +1,142 @@
+{
+    // -------------------------------------------------------------------------
+    // General
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/window",
+    ],
+
+    "modules-center": [],
+
+    "modules-right": [
+        "backlight",
+        "custom/divider",
+        "pulseaudio#output",
+        "pulseaudio#input",
+        "custom/divider",
+        "network",
+        "custom/divider",
+        "battery",
+        "custom/divider",
+        "clock#date",
+        "custom/divider",
+        "clock#time",
+        "custom/divider",
+        "hyprland/language",
+        "custom/divider",
+        "idle_inhibitor",
+        "custom/divider",
+        "tray",
+    ],
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon} {capacity}%", 
+        "format-discharging": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "" 
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "timezone": "Europe/Athens",
+        "tooltip": true,
+        "tooltip-format": "{:%Z}"
+    },
+
+    "clock#date": {
+        "interval": 10,
+        "format": "{:%d/%m/%Y}", 
+        "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": " {essid} ({signalStrength}%)", 
+        "format-ethernet": "󰈀  {ifname}", 
+        "format-disconnected": "⚠ Disconnected",
+        "format-disabled": "⚠ Disabled",
+        "family": "ipv4",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "nm-applet"
+    },
+
+    "pulseaudio#output": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "default": ["", ""]
+        },
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 100,
+        "on-click": "pavucontrol -t 1"
+    },  
+
+    "pulseaudio#input": {
+        "scroll-step": 1,
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 100,
+        "on-click": "pavucontrol -t 4"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {percent}%",
+        "tooltip": false,
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-gr": "GR",
+    },
+
+    "idle_inhibitor": { 
+        "format": "{icon}", 
+        "format-icons": { 
+            "activated": "", 
+            "deactivated": "" 
+        } 
+    },
+
+    "custom/divider": {
+        "format": " | ",
+        "tooltip": false,
+    }
+}
