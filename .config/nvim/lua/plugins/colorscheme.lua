@@ -25,19 +25,30 @@ return {
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		enabled = true,
+		options = {
+			transparent = false,
+		},
 		config = function()
-			require("nightfox").setup({
-				options = {
-					transparent = false,
-				},
-			})
+			require("nightfox").setup({})
 			-- vim.cmd.colorscheme("carbonfox")
 			-- vim.cmd.colorscheme("dawnfox")
 			-- vim.cmd.colorscheme("dayfox")
-			vim.cmd.colorscheme("duskfox")
+			-- vim.cmd.colorscheme("duskfox")
 			-- vim.cmd.colorscheme("nightfox")
-			-- vim.cmd.colorscheme("nordfox") 
-            -- vim.cmd.colorscheme("terafox")
+			-- vim.cmd.colorscheme("nordfox")
+			-- vim.cmd.colorscheme("terafox")
+		end,
+	},
+
+	{
+		"thesimonho/kanagawa-paper.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa-paper").setup({
+				transparent = true,
+			})
+			vim.cmd.colorscheme("kanagawa-paper-ink")
 		end,
 	},
 }
