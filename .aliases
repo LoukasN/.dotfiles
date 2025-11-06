@@ -1,6 +1,6 @@
 alias nv="nvim"
 alias ls="ls --color=auto"
-alias ll="ls -lav --ignore=.. --ignore=."
+alias ll="eza -lah"
 alias lf="yazi"
 alias :q="exit"
 alias wifi-password="nmcli device wifi show-password ifname wlp3s0"
