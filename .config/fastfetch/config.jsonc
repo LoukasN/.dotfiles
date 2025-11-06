@@ -37,8 +37,8 @@
             "keyColor": "green",
         },
         {
-            "type": " cpu",
-            "key": "CPU",
+            "type": "cpu",
+            "key": " CPU",
             "keyColor": "green",
         },
         {
