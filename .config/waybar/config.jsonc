@@ -22,6 +22,7 @@
         "pulseaudio#input",
         "custom/divider",
         "network",
+        "custom/vpn",
         "custom/divider",
         "battery",
         "custom/divider",
@@ -81,6 +82,12 @@
         "family": "ipv4",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "nm-applet"
+    },
+
+    "custom/vpn":{
+        "interval": 5,
+        "format" : " {}",
+        "exec" : "ip add show | grep -qF tun0 && echo ",
     },
 
     "pulseaudio#output": {
