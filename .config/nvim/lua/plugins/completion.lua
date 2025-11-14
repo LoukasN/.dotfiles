@@ -18,9 +18,10 @@ return {
 				},
 			},
 			sources = {
-				default = { "lsp", "snippets", "path", "buffer" },
+				default = { "lsp", "snippets", "path", "buffer"},
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
+				{ name = "spelling" },
 			},
 			signature = { enabled = true },
 		},
