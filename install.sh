@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 EssentialPackages=(
-	"foot" "rofi" "neovim" "ly" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "swww" "blueman"
+	"foot" "rofi" "neovim" "ly" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman"
 )
 
 OptionalPackages=(
-	"pcmanfm" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
+	"thunar" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
 )
 
 Fonts=(

@@ -1,40 +1,36 @@
 # SETTING UP
 
-## Getting the dotfiles
-
-Clone this repo
-````
-git clone https://github.com/LoukasN/.dotfiles
-````
-Set up using the install script
+Set up using the install script (works for arch)
 ````
 cd .dotfiles
 ./install.sh
 ````
 
-## Installing packages on arch
+## Programs list (Hyprland)
 
-### For Hyprland
+### Essential packages
 
-#### Programs list
+- foot (Terminal)
+- rofi (Application)
+- neovim (Editor)
+- ly (Login Manager)
+- mako (Notification daemon)
+- zsh (Shell)
+- waybar (Bar)
+- papirus-icon-theme (Icon Theme)
+- zoxide (Directory )
+- hyprland (Window Manager)
+- slurp (Region capture)
+- grim (Screenshot utility)
+- hypridle (Idle lock)
+- swww (Wallpaper)
+- blueman (Bluetooth)
 
-- Kitty
-- Pcmanfm
-- Ranger
-- Rofi (wayland)
-- Neovim
-- Ly
-- Btop
-- Mako
-- Zsh
-- PowerLevel10k
-- waybar
-- Papirus-icon-theme
-- Qt5ct
-- Nwg-look
-- Zathura
-- Zoxide
-- Hyprland
-- Swaybg
-- Slurp
-- Grim
+### Optional packages
+- thunar
+- yazi
+- zathura
+- fzf
+- ripgrep
+- qt5ct
+- nwg-look
