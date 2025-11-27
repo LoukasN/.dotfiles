@@ -29,8 +29,8 @@ return {
 			transparent = false,
 		},
 		config = function()
-			require("nightfox").setup({})
-			-- vim.cmd.colorscheme("carbonfox")
+			-- require("nightfox").setup({})
+			vim.cmd.colorscheme("carbonfox")
 			-- vim.cmd.colorscheme("dawnfox")
 			-- vim.cmd.colorscheme("dayfox")
 			-- vim.cmd.colorscheme("duskfox")
@@ -48,7 +48,7 @@ return {
 			require("kanagawa-paper").setup({
 				transparent = true,
 			})
-			vim.cmd.colorscheme("kanagawa-paper-ink")
+			-- vim.cmd.colorscheme("kanagawa-paper-ink")
 		end,
 	},
 }

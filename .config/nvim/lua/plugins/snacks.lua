@@ -13,6 +13,7 @@ return {
             },
             picker = {
                 enabled = true,
+                layout = "ivy_split",
             },
             dashboard = {
                 enabled = false,
