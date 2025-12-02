@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EssentialPackages=(
-	"foot" "rofi" "neovim" "ly" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman"
+	"foot" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman"
 )
 
 OptionalPackages=(
@@ -82,29 +82,6 @@ if [[ $SHELL =~ /zsh$ ]]; then
 else
 	printf "- Changing user shell to zsh\n"
 	chsh --shell "$(which zsh)" "$USER"
-fi
-
-# Enabling login manager
-# Get the name of the login manager
-displayManager=$(systemctl status display-manager.service | grep "loaded" | awk '{print $3}' | cut -d '.' -f 1 | rev | cut -d '/' -f 1 | rev)
-# If ly is not enabled
-if [[ $displayManager != "ly" ]]; then
-	while true; do
-		# Ask to enable
-		read -p "Disable the current login manager ($displayManager) for ly? (y/n)" confirmDisplay
-		if [[ $confirmDisplay =~ ^[yY]$ ]]; then
-			# Disable the current manager
-			sudo systemctl disable $displayManager
-			# Enable ly
-			sudo systemctl enable ly
-			break
-		elif [[ $confirmDisplay =~ ^[nN]$ ]]; then
-			# Else exit
-			break
-		else
-			printf "Invalid input. Enter 'y' or 'n'\n"
-		fi
-	done
 fi
 
 printf "-- Script is done. Please log out and log back in for the changes to take effect :)\n"
