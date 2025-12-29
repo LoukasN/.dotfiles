@@ -53,6 +53,14 @@ textbox-prompt-colon {
     text-color: @foreground;
 }
 
+error-message {
+    text-color: @foreground;
+}
+
+textbox {
+    text-color: inherit;
+}
+
 configuration {
     font:         "JetBrainsMonoNerdFont 16";
     display-drun: "Open";
