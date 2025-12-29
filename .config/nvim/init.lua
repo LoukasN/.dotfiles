@@ -36,6 +36,9 @@ vim.opt.signcolumn = "yes:1"
 -- faster update time
 vim.opt.updatetime = 50
 
+-- line break 
+vim.opt.textwidth = 80
+
 -- Tab has size of 4
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
