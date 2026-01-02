@@ -66,3 +66,8 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# Edit command with editor
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
