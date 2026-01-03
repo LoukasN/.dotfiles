@@ -19,5 +19,5 @@ export BROWSER=firefox
 
 # Start hyprland
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec uwsm start hyprland
+    exec start-hyprland
 fi
