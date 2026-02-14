@@ -26,8 +26,8 @@
         "custom/divider",
         "battery",
         "custom/divider",
-        "clock#date",
-        "custom/divider",
+        // "clock#date",
+        // "custom/divider",
         "clock#time",
         "custom/divider",
         "hyprland/language",
@@ -64,23 +64,23 @@
         "format": "{:%H:%M:%S}",
         "timezone": "Europe/Athens",
         "tooltip": true,
-        "tooltip-format": "{:%Z}"
+        "tooltip-format": "{:%d/%m/%Y}"
     },
 
-    "clock#date": {
-        "interval": 10,
-        "format": "{:%d/%m/%Y}", 
-        "tooltip-format": "{:%e %B %Y}"
-    },
+    // "clock#date": {
+    //     "interval": 10,
+    //     "format": "{:%d/%m/%Y}", 
+    //     "tooltip-format": "{:%e %B %Y}"
+    // },
 
     "network": {
         "interval": 5,
-        "format-wifi": " {essid} ({signalStrength}%)", 
-        "format-ethernet": "󰈀  {ifname}", 
-        "format-disconnected": "⚠ Disconnected",
-        "format-disabled": "⚠ Disabled",
+        "format-wifi": " ({signalStrength}%)", 
+        "format-ethernet": "󰈀", 
+        "format-disconnected": "⚠",
+        "format-disabled": "⚠",
         "family": "ipv4",
-        "tooltip-format": "{ifname}: {ipaddr}",
+        "tooltip-format": "{essid} | {ifname}: {ipaddr}",
         "on-click": "nm-applet"
     },
 
