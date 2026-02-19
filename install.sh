@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EssentialPackages=(
-	"foot" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman"
+	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman" "eza"
 )
 
 OptionalPackages=(
@@ -26,12 +26,12 @@ function InstallApps {
 	done
 }
 
-printf "-----------------------\n"
-printf "Starting install script\n"
-printf "-----------------------\n\n"
+echo "-----------------------\n"
+echo "Starting install script\n"
+echo "-----------------------\n\n"
 
 # Directories
-printf "- Creating directories in .config\n"
+echo "- Creating directories in .config\n"
 for dir in "${ConfigDirs[@]}"; do
 	mkdir -p "$HOME/.config/$dir"
 done
@@ -39,28 +39,28 @@ mkdir -p "$HOME/.local/share"
 mkdir -p "$HOME/Pictures/wallpapers"
 
 # Packages
-printf "Updating system packages\n"
+echo "Updating system packages\n"
 sudo pacman -Syu --noconfirm
-printf "Installing packages\n"
+echo "Installing packages\n"
 InstallApps "${EssentialPackages[@]}"
 while true; do
 	read -p "Do you want to install optional packages? (y/n)" confirmation
 	if [[ $confirmation =~ ^[yY]$ ]]; then
-		printf "Installing optional packages\n"	
+		echo "Installing optional packages\n"	
 		InstallApps "${OptionalPackages[@]}"
 		break
 	elif [[ $confirmation =~ ^[nN]$ ]]; then
-		printf "Not installing optional packages\n"
+		echo "Not installing optional packages\n"
 		break
 	else
-		printf "Invalid input. Enter 'y' or 'n'\n"
+		echo "Invalid input. Enter 'y' or 'n'\n"
 	fi
 done
-printf "Installing fonts\n"
+echo "Installing fonts\n"
 InstallApps "${Fonts[@]}"
 
 # PowerLevel10k
-printf "- Installing powerlevel10k from git into GitApps directory\n"
+echo "- Installing powerlevel10k from git into GitApps directory\n"
 if [[ ! -d "$HOME/GitApps" ]]; then
 	mkdir -p ~/GitApps
 fi
@@ -68,21 +68,21 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/GitApps/power
 
 # Stow
 InstallApps "stow"
-printf "- Using stow for configurations\n"
+echo "- Using stow for configurations\n"
 if [[ -d ".dotfiles" ]]; then
 	cd ".dotfiles" || exit
 	stow --adopt .
 else
-	printf ".dotfiles directory not found\n"
+	echo ".dotfiles directory not found\n"
 fi
 
 # Change the shell
 if [[ $SHELL =~ /zsh$ ]]; then
-	printf "- Shell is already set to zsh\n"
+	echo "- Shell is already set to zsh\n"
 else
-	printf "- Changing user shell to zsh\n"
+	echo "- Changing user shell to zsh\n"
 	chsh --shell "$(which zsh)" "$USER"
 fi
 
-printf "-- Script is done. Please log out and log back in for the changes to take effect :)\n"
+echo "-- Script is done. Please log out and log back in for the changes to take effect :)\n"
 exit 0
