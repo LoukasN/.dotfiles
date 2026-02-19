@@ -6,7 +6,7 @@ PrevWallpaper=$(cat "$ConfigLocation" | grep "exec = swww img " | awk -F '/' '{p
 
 SelectPic(){
     # Shows the wallpaper selection menu in rofi
-    Wallpaper=$(ls "$WallpaperDir" | rofi -dmenu -p "Select wallpaper")
+    Wallpaper=$(ls "$WallpaperDir" | rofi -dmenu -i -p "Select wallpaper")
     if [[ $Wallpaper == "q" || $Wallpaper == "" ]]; then
         exit
     else
