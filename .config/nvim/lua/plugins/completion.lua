@@ -42,6 +42,11 @@ return {
 		},
 		config = function()
 			require("conform").setup({
+				formatters = {
+					prettier = {
+						prepend_args = { "--tab-width", "4" },
+					},
+				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "black" },
