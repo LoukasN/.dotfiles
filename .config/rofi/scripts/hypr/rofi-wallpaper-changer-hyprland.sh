@@ -2,7 +2,7 @@
 
 WallpaperDir="/home/$USER/Pictures/wallpapers/" # Wallpaper dir
 ConfigLocation="/home/$USER/.config/hypr/autostart.conf" # The config file to edit
-PrevWallpaper=$(cat "$ConfigLocation" | grep "exec = swww img " | awk -F '/' '{print $4}') # Get previous wallpapers lines from file)
+PrevWallpaper=$(cat "$ConfigLocation" | grep "exec = awww img " | awk -F '/' '{print $4}') # Get previous wallpapers lines from file)
 
 SelectPic(){
     # Shows the wallpaper selection menu in rofi
