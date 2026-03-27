@@ -10,12 +10,12 @@ max-history=5
 max-icon-size=64
 
 [urgency=low]
-border-color=#000000DD
-border-size=0
+border-color=#778899DD
+border-size=1
 
 [urgency=normal]
 border-color=#FFFFFFDD
-border-size=0
+border-size=1
 
 [urgency=high]
 border-color=#FF0000DD
