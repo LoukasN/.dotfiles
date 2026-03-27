@@ -43,6 +43,7 @@
 
     "battery": {
         "interval": 10,
+        "bat": "BAT0",
         "states": {
             "warning": 30,
             "critical": 15
