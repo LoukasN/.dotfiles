@@ -23,7 +23,7 @@ cd .dotfiles
 - slurp (Region capture)
 - grim (Screenshot utility)
 - hypridle (Idle lock)
-- swww (Wallpaper)
+- awww (Wallpaper)
 - blueman (Bluetooth)
 
 ### Optional packages

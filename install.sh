@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EssentialPackages=(
-	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "swww" "blueman" "eza"
+	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza"
 )
 
 OptionalPackages=(
