@@ -20,6 +20,7 @@ vim.opt.undofile = true
 -- Disables highlighting search and enables incremental search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.smartcase = true
 
 -- Colors
 vim.opt.termguicolors = true
@@ -32,6 +33,7 @@ vim.opt.scrolloff = 12
 
 -- Sidebar 1
 vim.opt.signcolumn = "yes:1"
+vim.opt.colorcolumn = "100"
 
 -- faster update time
 vim.opt.updatetime = 50
@@ -50,7 +52,7 @@ vim.o.expandtab = true
 vim.cmd("set cursorline")
 
 -- Use system clipboard
--- vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
 -- Set to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
