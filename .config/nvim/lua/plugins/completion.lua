@@ -19,7 +19,6 @@ return {
 			},
 			sources = {
 				default = { "lsp", "snippets", "path", "buffer" },
-				snippets = { preset = "luasnip" },
 			},
 			signature = { enabled = true },
 		},
