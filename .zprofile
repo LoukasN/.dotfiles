@@ -16,6 +16,7 @@ export PATH="$HOME/.gem/bin:$PATH"
 # Set misc environment variables
 export EDITOR=nvim
 export BROWSER=firefox
+export MANPAGER="bat -l man -p"
 
 # Start hyprland
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
