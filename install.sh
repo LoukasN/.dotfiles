@@ -5,7 +5,7 @@ EssentialPackages=(
 )
 
 OptionalPackages=(
-	"thunar" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
+	"thunar" "tumbler" "thunar-volman" "thunar-archive-plugin" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
 )
 
 Fonts=(
