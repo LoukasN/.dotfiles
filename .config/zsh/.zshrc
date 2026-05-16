@@ -1,9 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi	
+# Starship
+eval "$(starship init zsh)"
 
 # History settings
 HISTFILE=~/.histfile
@@ -12,14 +8,17 @@ HISTSIZE=5000
 SAVEHIST=5000
 
 # Options
-setopt autocd
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-setopt hist_ignore_space
+setopt AUTOCD
+setopt NOBEEP
+setopt NUMERIC_GLOB_SORT
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
 
 # Keybinds
 bindkey -e
@@ -35,7 +34,6 @@ compinit
 # Sourcing aliases and plugin "manager"
 source ~/.aliases
 source ~/.config/zsh/zsh-functions
-source ~/GitApps/powerlevel10k/powerlevel10k.zsh-theme
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -50,24 +48,13 @@ eval "$(zoxide init --cmd cd zsh)"
 # Fzf
 source <(fzf --zsh)
 
+
 # Add ~/.local/bin to path
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-# Yazi changes directories
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
 # Edit command with editor
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '^xe' edit-command-line
+bindkey '^e' edit-command-line
