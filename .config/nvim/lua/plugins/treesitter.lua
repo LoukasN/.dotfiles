@@ -1,23 +1,32 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		local config = require("nvim-treesitter.configs")
-		config.setup({
-			modules = {},
-			ensure_installed = { "lua", "c", "bash", "markdown" },
-			sync_install = true,
-			ignore_install = {},
-			auto_install = true,
-			highlight = { enable = true },
-			indent = { enable = true },
-			disable = function(lang, buf)
-				local max_filesize = 100 * 1024 -- 100 KB
-				local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-				if ok and stats and stats.size > max_filesize then
-					return true
-				end
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				pcall(vim.treesitter.start)
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,
 		})
+		init = function()
+			local ensureInstalled = {
+				"lua",
+				"c",
+				"cpp",
+				"go",
+				"css",
+				"html",
+				"python",
+				"markdown",
+			}
+			local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+			local parserToInstall = vim.iter(ensureInstalled)
+				:filter(function(parser)
+					return not vim.tbl_contains(alreadyInstalled, parser)
+				end)
+				:totable()
+			require("nvim-treesitter").install(parserToInstall)
+		end
 	end,
 }
