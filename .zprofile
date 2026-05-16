@@ -17,6 +17,7 @@ export PATH="$HOME/.gem/bin:$PATH"
 export EDITOR=nvim
 export BROWSER=firefox
 export MANPAGER="bat -l man -p"
+export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
 # Start hyprland
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EssentialPackages=(
-	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza"
+	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza" "starship"
 )
 
 OptionalPackages=(
@@ -58,13 +58,6 @@ while true; do
 done
 echo "Installing fonts\n"
 InstallApps "${Fonts[@]}"
-
-# PowerLevel10k
-echo "- Installing powerlevel10k from git into GitApps directory\n"
-if [[ ! -d "$HOME/GitApps" ]]; then
-	mkdir -p ~/GitApps
-fi
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/GitApps/powerlevel10k
 
 # Stow
 InstallApps "stow"
