@@ -23,14 +23,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent ")
 	-- Custom battery notification script
 	hl.exec_cmd("~/.local/bin/battery-notification.sh")
-	-- GTK options
-	local gnome_schema = "org.gnome.desktop.interface"
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "gtk-theme 'Adwaita-dark'")
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "cursor-theme 'capitaine-cursors'")
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "icon-theme 'Papirus-Dark'")
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "font-hinting 'medium'")
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "font-antialiasing 'rgba'")
-	hl.exec_cmd("gsettings set " .. gnome_schema .. "accent-color 'red'")
 end)
 
 hl.config({
@@ -51,9 +43,7 @@ hl.env("XCURSOR_THEME", "capitaine-cursors")
 hl.env("XCURSOR_SIZE", "8")
 -- QT
 hl.env("QT_QPA_PLATFORM", "wayland")
--- Fonts
-hl.env("GTK_FONT_NAME", "JetBrainsMonoNF")
-hl.env("QT_FONT_FAMILY", "JetBrainsMonoNF")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 --[[
  __  __ ___ ____   ____ 
