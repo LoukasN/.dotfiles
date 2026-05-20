@@ -8,9 +8,6 @@ hl.config({
 		layout = Layout,
 	},
 
-	animations = {
-		enabled = true,
-	},
 	decoration = {
 
 		rounding = 4,
@@ -25,13 +22,17 @@ hl.config({
 		blur = {
 			enabled = true,
 			size = 2,
-			passes = 4,
+			passes = 3,
 			vibrancy = 0.1696,
 		},
 
 		dim_inactive = true,
 		dim_strength = 0.2,
 		dim_special = 0.3,
+	},
+
+	animations = {
+		enabled = true,
 	},
 })
 

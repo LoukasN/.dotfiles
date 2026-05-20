@@ -18,7 +18,7 @@ then
 	exit
 elif [ "$selected_option" == "$logout" ]
 then
-	hyprctl dispatch exit 1
+    kill -SIGTERM $(pidof Hyprland)
 	exit
 elif [ "$selected_option" == "$shutdown" ]
 then
