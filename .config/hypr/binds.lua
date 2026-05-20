@@ -17,7 +17,7 @@ hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("pkill waybar || waybar"))
 
 if Layout == "scrolling" then
-	hl.bind("SUPER + SPACE", hl.dsp.layout("promote"))
+	hl.bind("SUPER + SPACE", hl.dsp.layout("consume_or_expel next"))
 	hl.bind("SUPER + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 elseif Layout == "dwindle" then
 	hl.bind("SUPER + SPACE", hl.dsp.window.float({ action = "toggle" }))
@@ -54,16 +54,28 @@ hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
 hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
 
 -- Move window with SUPER + SHIFT + vim motions
-hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
-hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+if Layout == "dwindle" then
+	hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+	hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+elseif Layout == "scrolling" then
+	hl.bind("SUPER + SHIFT + H", hl.dsp.layout("swapcol l"))
+	hl.bind("SUPER + SHIFT + L", hl.dsp.layout("swapcol r"))
+end
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Resizing
-hl.bind("SUPER + RIGHT", hl.dsp.window.resize({ x = 40, y = 0, relative = true, repeating = true }))
-hl.bind("SUPER + LEFT", hl.dsp.window.resize({ x = -40, y = 0, relative = true, repeating = true }))
-hl.bind("SUPER + UP", hl.dsp.window.resize({ x = 0, y = 40, relative = true, repeating = true }))
-hl.bind("SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = -40, relative = true, repeating = true }))
+if Layout == "dwindle" then
+	hl.bind("SUPER + RIGHT", hl.dsp.window.resize({ x = 40, y = 0, relative = true, repeating = true }))
+	hl.bind("SUPER + LEFT", hl.dsp.window.resize({ x = -40, y = 0, relative = true, repeating = true }))
+	hl.bind("SUPER + UP", hl.dsp.window.resize({ x = 0, y = 40, relative = true, repeating = true }))
+	hl.bind("SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = -40, relative = true, repeating = true }))
+elseif Layout == "scrolling" then
+	hl.bind("SUPER + RIGHT", hl.dsp.layout("colresize +conf"))
+	hl.bind("SUPER + LEFT", hl.dsp.layout("colresize -conf"))
+	hl.bind("SUPER + UP", hl.dsp.window.resize({ x = 0, y = 40, relative = true, repeating = true }))
+	hl.bind("SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = -40, relative = true, repeating = true }))
+end
 
 -- Mouse Resizing
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -86,12 +98,12 @@ end
 
 -- Scratchpad implementation
 hl.bind("SUPER + MINUS", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind("SUPER + SHIFT + MINUS", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+hl.bind("SUPER + SHIFT + MINUS", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 hl.workspace_rule({ workspace = "special:scratchpad", persistent = true })
 
 -- Music special workspace
 hl.bind("SUPER + M", hl.dsp.workspace.toggle_special("media"))
-hl.bind("SUPER + SHIFT + M", hl.dsp.window.move({ workspace = "special:media" }))
+hl.bind("SUPER + SHIFT + M", hl.dsp.window.move({ workspace = "special:media", follow = false }))
 hl.workspace_rule({ workspace = "special:media", persistent = true })
 
 --[[
