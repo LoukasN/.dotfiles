@@ -38,7 +38,7 @@ vim.opt.colorcolumn = "100"
 -- faster update time
 vim.opt.updatetime = 50
 
--- line break 
+-- line break
 vim.opt.textwidth = 80
 
 -- Tab has size of 4
