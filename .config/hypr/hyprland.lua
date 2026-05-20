@@ -67,6 +67,10 @@ hl.config({
 		smart_resizing = false,
 		special_scale_factor = 0.98,
 	},
+	scrolling = {
+		wrap_focus = false,
+		wrap_swapcol = false,
+	},
 })
 
 --[[
