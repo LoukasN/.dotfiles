@@ -10,6 +10,7 @@ require("autostart")
 require("binds")
 require("monitors")
 require("permissions")
+require("rules")
 require("variables")
 require("visuals")
 
@@ -72,49 +73,6 @@ hl.config({
 		wrap_swapcol = false,
 	},
 })
-
---[[
-__        ___           _               ____        _           
-\ \      / (_)_ __   __| | _____      _|  _ \ _   _| | ___  ___ 
- \ \ /\ / /| | '_ \ / _` |/ _ \ \ /\ / / |_) | | | | |/ _ \/ __|
-  \ V  V / | | | | | (_| | (_) \ V  V /|  _ <| |_| | |  __/\__ \
-   \_/\_/  |_|_| |_|\__,_|\___/ \_/\_/ |_| \_\\__,_|_|\___||___/
---]]
-
--- P-P
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, float = true })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, pin = true })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, no_dim = true })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, rounding = 0 })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, border_size = 0 })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, size = { 854, 480 } })
-hl.window_rule({ match = { title = "^Picture-in-Picture" }, move = { 1062, 45 } })
-
--- Remove dimming for certain windows
-hl.window_rule({ match = { class = "^(com.stremio.stremio)$" }, no_dim = true })
-hl.window_rule({ match = { title = ".*- YouTube —.*" }, no_dim = true })
-hl.window_rule({ match = { title = ".*www.youtube.com.*" }, no_dim = true })
-hl.window_rule({ match = { title = ".*- Twitch —.*" }, no_dim = true })
-hl.window_rule({ match = { title = "Netflix.*" }, no_dim = true })
-hl.window_rule({ match = { title = ".*| Disney+.*" }, no_dim = true })
-
--- Virtual machine workspace 10
-hl.window_rule({ match = { class = "virt-manager" }, workspace = 10 })
-hl.window_rule({ match = { class = "virt-manager" }, fullscreen = true })
-
--- Audio settings floating
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, float = true })
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, pin = true })
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, size = { 895, 520 } })
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, move = { 1021, 44 } })
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, border_size = 0 })
-
--- Bluetooth menu floating
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, float = true })
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, pin = true })
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, size = { 895, 520 } })
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, move = { 1021, 44 } })
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, border_size = 0 })
 
 --[[
  __  __ ___ ____   ____ 
