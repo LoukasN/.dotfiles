@@ -30,7 +30,7 @@ hl.config({
 })
 
 --[[
-_____ _
+ _____ _
 |_   _| |__   ___ _ __ ___   ___  ___
   | | | '_ \ / _ \ '_ ` _ \ / _ \/ __|
   | | | | | |  __/ | | | | |  __/\__ \
@@ -45,7 +45,6 @@ hl.on("hyprland.start", function() hl.exec_cmd("hyprctl setcursor Capitaine-Curs
 -- QT
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-
 --[[
  __  __ ___ ____   ____
 |  \/  |_ _/ ___| / ___|
