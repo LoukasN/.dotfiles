@@ -1,79 +1,11 @@
+-- New UI
+require("vim._core.ui2").enable({})
+
 -- Custom mappings
 require("config.keymaps")
+-- Vim options
+require("config.options")
+-- Spelling configuration
+require("config.spell")
 -- Lazy package manager
 require("config.lazy")
-
--- Enables numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
--- Disables swap
-vim.opt.swapfile = false
-
--- Disables backup
-vim.opt.backup = false
-
--- Sets undo folder
-vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
-vim.opt.undofile = true
-
--- Disables highlighting search and enables incremental search
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.smartcase = true
-
--- Colors
-vim.opt.termguicolors = true
-
--- Borders
-vim.opt.winborder = "rounded"
-
--- Visible lines before scrolling
-vim.opt.scrolloff = 12
-
--- Sidebar 1
-vim.opt.signcolumn = "yes:1"
-vim.opt.colorcolumn = "100"
-
--- faster update time
-vim.opt.updatetime = 50
-
--- line break
-vim.opt.textwidth = 80
-
--- Tab has size of 4
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.smartindent = true
-vim.o.expandtab = true
-
--- highlight cursor line
-vim.cmd("set cursorline")
-
--- Use system clipboard
-vim.o.clipboard = "unnamedplus"
-
--- Set to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
-
--- True colors
-vim.o.termguicolors = true
-
--- Better highlighting when copying text
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = "*",
-})
-
--- Spellchecking
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us", "el" }
-
--- Vim movement in Greek language
-vim.o.langmap =
-	"ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
