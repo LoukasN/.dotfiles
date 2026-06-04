@@ -67,3 +67,6 @@ hl.window_rule({ match = { title = "^(.*)(wants to save)$" }, center = true })
 hl.window_rule({ match = { title = "^(.*)(wants to save)$" }, float = true })
 hl.window_rule({ match = { title = "^(.*)(wants to open)$" }, center = true })
 hl.window_rule({ match = { title = "^(.*)(wants to open)$" }, float = true })
+
+hl.window_rule({ match = { title = "^(Select what to share)(.*)$" }, center = true })
+hl.window_rule({ match = { title = "^(Select what to share)(.*)$" }, float = true })
