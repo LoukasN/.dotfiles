@@ -33,7 +33,6 @@ return {
             { "<leader>ps", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
             { "<leader>pS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
             { "<leader>pc", function() Snacks.picker.colorschemes() end, desc = "Preview colorschemes" },
-            { "<leader>h", function() Snacks.picker.help() end, desc = "Preview colorschemes" },
             { "<leader>n", function() Snacks.explorer() end, desc = "Open file explorer" },
             { "<leader>lg", function() Snacks.lazygit() end, desc = "Open lazygit" },
         },
