@@ -16,7 +16,7 @@ return {
 					mini = true,
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 
@@ -25,7 +25,7 @@ return {
 		priority = 1000,
 		enabled = true,
 		options = {
-			transparent = false,
+			transparent = true,
 		},
 		config = function()
 			-- vim.cmd.colorscheme("carbonfox")
@@ -46,7 +46,7 @@ return {
 			require("kanagawa-paper").setup({
 				transparent = true,
 			})
-			-- vim.cmd.colorscheme("kanagawa-paper-ink")
+			vim.cmd.colorscheme("kanagawa-paper-ink")
 		end,
 	},
 }
