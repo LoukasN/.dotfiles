@@ -17,6 +17,9 @@ return {
 					auto_show = true,
 				},
 			},
+			snippets = {
+				preset = "luasnip",
+			},
 			sources = {
 				default = { "lsp", "snippets", "path", "buffer" },
 			},
@@ -33,7 +36,7 @@ return {
 			{
 				"<leader>ff",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
 				desc = "Format buffer",
@@ -49,19 +52,16 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "black" },
-					c = { "clang-format" },
-					cpp = { "clang-format" },
+					c = { "clang_format" },
+					cpp = { "clang_format" },
 					css = { "prettier" },
 					html = { "prettier" },
 					markdown = { "prettier" },
-					sql = { "sqlfmt" },
 					bash = { "beautysh" },
-					ruby = { "rubyfmt" },
 					javascript = { "prettier" },
 					typescript = { "prettier" },
 					javascriptreact = { "prettier" },
 					typescriptreact = { "prettier" },
-					typst = { "typstyle" },
 				},
 			})
 		end,
