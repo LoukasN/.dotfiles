@@ -38,8 +38,8 @@ window#waybar.hidden {
     border-bottom: 3px solid #ff5148;
 }
 
-#workspaces button.focused {
-    background-color: #181616;
+#workspaces button:hover {
+    background: #101010;
 }
 
 /*Tooltip*/
