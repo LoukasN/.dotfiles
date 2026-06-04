@@ -24,6 +24,8 @@ return {
 						"lua_ls",
 						"clangd",
 						"bashls",
+						"ts_ls",
+						"gopls",
 					},
 					auto_install = false,
 				},
@@ -56,20 +58,21 @@ return {
 			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 			})
-			vim.lsp.config("sqls", {
-				capabilities = capabilities,
-			})
 			vim.lsp.config("tinymist", {
 				capabilities = capabilities,
 				offset_encoding = "utf-8",
 				formatterMode = "typstyle",
 			})
-			vim.lsp.config("taplo", {
+			vim.lsp.config("tsserver", {
 				capabilities = capabilities,
 			})
-			vim.lsp.config("ts_ls", {
+
+			vim.lsp.config("emmet_ls", {
 				capabilities = capabilities,
+				filetypes = { "html", "css", "jsx", "tsx", "javascriptreact", "typescriptreact" },
 			})
+
+			vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp", "gopls", "tinymist", "tsserver", "emmet_ls" })
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
