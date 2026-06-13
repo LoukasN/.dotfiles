@@ -26,7 +26,7 @@ hl.on("hyprland.start", function()
 end)
 
 hl.config({
-    reloaded = hl.exec_cmd("awww img ~/Pictures/wallpapers/forest.jpg"),
+    reloaded = hl.exec_cmd("awww img ~/Pictures/wallpapers/thing.png"),
 })
 
 --[[
@@ -56,4 +56,4 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Sessions
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
-hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
