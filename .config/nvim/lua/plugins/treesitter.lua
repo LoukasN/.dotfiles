@@ -17,6 +17,7 @@ return {
 			"go",
 			"css",
 			"html",
+			"javascript",
 			"python",
 			"markdown",
 		}

@@ -72,6 +72,10 @@ return {
 				filetypes = { "html", "css", "jsx", "tsx", "javascriptreact", "typescriptreact" },
 			})
 
+			vim.lsp.config("qmlls", {
+				capabilities = capabilities,
+			})
+
 			vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp", "gopls", "tinymist", "tsserver", "emmet_ls" })
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
