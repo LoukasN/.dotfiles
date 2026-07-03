@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = "$directory$git_branch$git_status$character"
+format = "$directory$python$git_branch$git_status$character"
 
 [directory]
 format = "[$path](cyan)[$read_only]($read_only_style) "
@@ -23,6 +23,10 @@ modified   = "[!$count ](bold green)"
 untracked  = "[?$count ](bold yellow)"
 deleted    = "[-$count ](bold red)"
 conflicted = "[~$count ](bold red)"
+
+[python]
+format = "[ ($virtualenv)]($style)"
+style = "bold yellow"
 
 [character]
 success_symbol = "[❯](green)"
