@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+fileName="$(date +%F_%H-%M-%S)"
+screenshotPath=~/Pictures/screenshots/"$fileName.png"
+
+if [ "$1" = "select" ]; then
+    grim -g "$(slurp)" "$screenshotPath"
+else 
+    grim "$screenshotPath"
+fi
+
+if [ -f "$screenshotPath" ]; then
+    wl-copy --type image/png < "$screenshotPath"
+    notify-send  'Screenshot captured and copied to clipboard'
+fi
