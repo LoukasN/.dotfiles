@@ -58,8 +58,3 @@ fi
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-# Open tmux on new terminal
-if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
-    exec tmux new-session -A -s loukas
-fi
