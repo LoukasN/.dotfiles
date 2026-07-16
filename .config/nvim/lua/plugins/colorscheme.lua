@@ -16,7 +16,7 @@ return {
 					mini = true,
 				},
 			})
-			-- vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 
@@ -46,7 +46,7 @@ return {
 			require("kanagawa-paper").setup({
 				transparent = true,
 			})
-			vim.cmd.colorscheme("kanagawa-paper-ink")
+			-- vim.cmd.colorscheme("kanagawa-paper-ink")
 		end,
 	},
 }
