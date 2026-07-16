@@ -15,6 +15,14 @@ hl.monitor({
 })
 
 hl.monitor({
+	output = "desc:Beihai Century Joint Innovation Technology Co.Ltd C24A1H",
+	mode = "1920x1080@240.00Hz",
+	position = "auto",
+	scale = "1",
+	mirror = PrimaryMonitor,
+})
+
+hl.monitor({
 	output = "",
 	mode = "preffered",
 	position = "auto",
