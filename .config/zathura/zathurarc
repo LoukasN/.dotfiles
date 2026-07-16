@@ -3,44 +3,51 @@ set adjust-open "best-fit"
 set pages-per-row 1
 set zoom-min 10
 set guioptions ""
+set incremental-search true
+set selection-notification false
 
-# zathurarc-dark
+# zathurarc-kanagawa-dragon
 set font "MartianMono 12"
-set default-bg "#000000" #00
-set default-fg "#F7F7F6" #01
 
-set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#202020" #01
+# base
+set default-bg           "#181616" 
+set default-fg           "#c5c9c5" 
 
-set inputbar-bg "#151515" #00 currently not used
-set inputbar-fg "#FFFFFF" #02
+# statusbar
+set statusbar-bg         "#12120f"
+set statusbar-fg         "#a6a69c"
 
-set notification-error-bg "#AC4142" #08
-set notification-error-fg "#151515" #00
+# inputbar (only visible if guioptions includes "c")
+set inputbar-bg          "#1D1C19"
+set inputbar-fg          "#c5c9c5"
 
-set notification-warning-bg "#AC4142" #08
-set notification-warning-fg "#151515" #00
+# notifications
+set notification-bg          "#8a9a7b"
+set notification-fg          "#12120f"
+set notification-error-bg    "#c4746e"
+set notification-error-fg    "#12120f"
+set notification-warning-bg  "#b6927b"
+set notification-warning-fg  "#12120f"
 
-set highlight-color "#F4BF75" #0A
-set highlight-active-color "#6A9FB5" #0D
+# search / selection highlight
+set highlight-color         "#c4b28a"
+set highlight-active-color  "#8ba4b0"
 
-set completion-highlight-fg "#151515" #02
-set completion-highlight-bg "#90A959" #0C
-
-set completion-bg "#303030" #02
-set completion-fg "#E0E0E0" #0C
-
-set notification-bg "#90A959" #0B
-set notification-fg "#151515" #00
+# completion menu
+set completion-bg           "#282727"
+set completion-fg           "#c5c9c5"
+set completion-group-bg     "#1D1C19"
+set completion-group-fg     "#9e9b93"
+set completion-highlight-bg "#8ba4b0"
+set completion-highlight-fg "#12120f"
 
 set recolor "true"
-set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#E0E0E0" #06
-set recolor-reverse-video "true"
+set recolor-lightcolor "#181616"
+set recolor-darkcolor  "#c5c9c5"
 set recolor-keephue "true"
-
-
+set recolor-reverse-video "true"
 set render-loading "false"
+
 set scroll-step 50
 unmap f
 map f toggle_fullscreen
