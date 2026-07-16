@@ -31,15 +31,22 @@ hl.window_rule({ match = { class = "virt-manager" }, fullscreen = true })
 hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, float = true })
 hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, pin = true })
 hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, size = { "monitor_w*0.45", "monitor_h*0.45" } })
-hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, move = { "monitor_w*0.5485", "monitor_h*0.04" } })
+hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, move = { "monitor_w*0.5485", "monitor_h*0.045" } })
 hl.window_rule({ match = { initial_title = "^(Volume Control)$" }, border_size = 0 })
 
 -- Bluetooth menu floating
 hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, float = true })
 hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, pin = true })
 hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, size = { "monitor_w*0.45", "monitor_h*0.45" } })
-hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, move = { "monitor_w*0.5485", "monitor_h*0.04" } })
+hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, move = { "monitor_w*0.5485", "monitor_h*0.045" } })
 hl.window_rule({ match = { initial_title = "^(Bluetooth Devices)$" }, border_size = 0 })
+
+-- Network connections floating
+hl.window_rule({ match = { initial_title = "^(Network Connections)$" }, float = true })
+hl.window_rule({ match = { initial_title = "^(Network Connections)$" }, pin = true })
+hl.window_rule({ match = { initial_title = "^(Network Connections)$" }, size = { "monitor_w*0.45", "monitor_h*0.45" } })
+hl.window_rule({ match = { initial_title = "^(Network Connections)$" }, move = { "monitor_w*0.5485", "monitor_h*0.045" } })
+hl.window_rule({ match = { initial_title = "^(Network Connections)$" }, border_size = 0 })
 
 -- Floating/Centering
 hl.window_rule({ match = { title = "^(Open File)(.*)$" }, center = true })
@@ -56,6 +63,9 @@ hl.window_rule({ match = { title = "^(Open Folder)(.*)$" }, float = true })
 
 hl.window_rule({ match = { title = "^(Save As)(.*)$" }, center = true })
 hl.window_rule({ match = { title = "^(Save As)(.*)$" }, float = true })
+
+hl.window_rule({ match = { title = "^(Save File)(.*)$" }, center = true })
+hl.window_rule({ match = { title = "^(Save File)(.*)$" }, float = true })
 
 hl.window_rule({ match = { title = "^(Library)(.*)$" }, center = true })
 hl.window_rule({ match = { title = "^(Library)(.*)$" }, float = true })
