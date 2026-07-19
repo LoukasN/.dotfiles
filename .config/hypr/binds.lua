@@ -9,12 +9,15 @@ require("variables")
 --]]
 
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
+hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("kitty tmux new-session -A -s loukas"))
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 hl.bind("SUPER + D", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind("SUPER + P", hl.dsp.window.pseudo())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
-hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
-hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("pkill waybar || waybar"))
+-- hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
+hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("quickshell ipc call bar toggle"))
+-- hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("pkill waybar || waybar"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd("quickshell ipc call notifications toggle"))
 
 if Layout == "scrolling" then
 	hl.bind("SUPER + SPACE", hl.dsp.layout("consume_or_expel next"))
@@ -32,10 +35,14 @@ end
                   |_|           
 --]]
 
-hl.bind("SUPER + I", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/global/rofi-wifi-menu.sh"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/global/rofi-bluetooth-menu.sh"))
-hl.bind("SUPER + SHIFT + DELETE", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/hypr/powermenu.sh"))
-hl.bind("SUPER + W", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/hypr/rofi-wallpaper-changer-hyprland.sh"))
+-- hl.bind("SUPER + I", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/global/rofi-wifi-menu.sh"))
+hl.bind("SUPER + I", hl.dsp.exec_cmd("quickshell ipc call networkMenu toggle"))
+-- hl.bind("SUPER + B", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/global/rofi-bluetooth-menu.sh"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("quickshell ipc call bluetoothMenu toggle"))
+-- hl.bind("SUPER + SHIFT + DELETE", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/hypr/powermenu.sh"))
+hl.bind("SUPER + SHIFT + DELETE", hl.dsp.exec_cmd("quickshell ipc call shutdownMenu toggle"))
+-- hl.bind("SUPER + W", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/hypr/rofi-wallpaper-changer-hyprland.sh"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("quickshell ipc call wallpaperMenu toggle"))
 hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("bash ~/WindowsVM/cli-vm.sh"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("bash ~/.config/rofi/scripts/global/rofi-history-menu.sh"))
 
@@ -149,8 +156,8 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -n2 set 1%+"), { l
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -n2 set 1%-"), { locked = true, repeating = true })
 
 -- Screenshot using grim and slurp
-hl.bind("PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot.sh"), { locked = true, repeating = true })
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot-window.sh"), { locked = true, repeating = true })
+hl.bind("PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot"), { locked = true, repeating = true })
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot select"), { locked = true, repeating = true })
 
 -- Lock on lid close
 hl.bind("switch:on:Lid", hl.dsp.exec_cmd("systemctl suspend"))
