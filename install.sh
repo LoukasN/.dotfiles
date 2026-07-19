@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-EssentialPackages=(
-	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza" "starship"
+PrerequisitePackages=(
+    "which" "unzip" "tree-sitter-cli"
 )
+
+EssentialPackages=(
+	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza" "starship" )
 
 OptionalPackages=(
 	"thunar" "tumbler" "thunar-volman" "thunar-archive-plugin" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
@@ -13,7 +16,7 @@ Fonts=(
 )
 
 ConfigDirs=(
-	"foot" "rofi" "mako" "hypr" "nvim" "yazi" "rofi" "tmux/plugins" "waybar" "zsh/plugins"
+	"foot" "kitty" "rofi" "mako" "hypr" "nvim" "yazi" "rofi" "tmux/plugins" "waybar" "zsh/plugins"
 )
 
 # needed skips installed and up-to-date
@@ -26,12 +29,12 @@ function InstallApps {
 	done
 }
 
-echo "-----------------------\n"
-echo "Starting install script\n"
-echo "-----------------------\n\n"
+echo "-----------------------"
+echo "Starting install script"
+echo "-----------------------"
 
 # Directories
-echo "- Creating directories in .config\n"
+echo "- Creating directories in .config"
 for dir in "${ConfigDirs[@]}"; do
 	mkdir -p "$HOME/.config/$dir"
 done
@@ -39,43 +42,45 @@ mkdir -p "$HOME/.local/share"
 mkdir -p "$HOME/Pictures/wallpapers"
 
 # Packages
-echo "Updating system packages\n"
+echo "Updating system packages"
 sudo pacman -Syu --noconfirm
-echo "Installing packages\n"
+echo "Installing packages"
+InstallApps "${PrerequisitePackages[@]}"
 InstallApps "${EssentialPackages[@]}"
 while true; do
 	read -p "Do you want to install optional packages? (y/n)" confirmation
 	if [[ $confirmation =~ ^[yY]$ ]]; then
-		echo "Installing optional packages\n"	
+		echo "Installing optional packages"	
 		InstallApps "${OptionalPackages[@]}"
 		break
 	elif [[ $confirmation =~ ^[nN]$ ]]; then
-		echo "Not installing optional packages\n"
+		echo "Not installing optional packages"
 		break
 	else
-		echo "Invalid input. Enter 'y' or 'n'\n"
+		echo "Invalid input. Enter 'y' or 'n'"
 	fi
 done
-echo "Installing fonts\n"
+echo "Installing fonts"
 InstallApps "${Fonts[@]}"
 
 # Stow
 InstallApps "stow"
-echo "- Using stow for configurations\n"
+echo "- Using stow for configurations"
 if [[ -d ".dotfiles" ]]; then
 	cd ".dotfiles" || exit
 	stow --adopt .
 else
-	echo ".dotfiles directory not found\n"
+	echo ".dotfiles directory not found"
 fi
 
 # Change the shell
 if [[ $SHELL =~ /zsh$ ]]; then
-	echo "- Shell is already set to zsh\n"
+	echo "- Shell is already set to zsh"
 else
-	echo "- Changing user shell to zsh\n"
+	echo "- Changing user shell to zsh"
 	chsh --shell "$(which zsh)" "$USER"
 fi
 
-echo "-- Script is done. Please log out and log back in for the changes to take effect :)\n"
+echo "-- Script is done."
+echo "Please log out and log back in for the changes to take effect :)"
 exit 0
