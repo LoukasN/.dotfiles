@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 PrerequisitePackages=(
-    "which" "unzip" "tree-sitter-cli"
+    "which" "unzip" "tree-sitter-cli" "brightnessctl"
 )
 
 EssentialPackages=(
-	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza" "starship" )
+	"kitty" "rofi" "neovim" "mako" "zsh" "waybar" "papirus-icon-theme" "zoxide" "hyprland" "slurp" "grim" "hypridle" "hyprlock" "awww" "blueman" "eza" "starship" "quickshell" )
 
 OptionalPackages=(
 	"thunar" "tumbler" "thunar-volman" "thunar-archive-plugin" "yazi" "btop" "qt5ct" "zathura" "nwg-look" "fzf" "ripgrep"
@@ -63,6 +63,14 @@ done
 echo "Installing fonts"
 InstallApps "${Fonts[@]}"
 
+# Change the shell
+if [[ $SHELL =~ /zsh$ ]]; then
+	echo "- Shell is already set to zsh"
+else
+	echo "- Changing user shell to zsh"
+	chsh --shell "$(which zsh)" "$USER"
+fi
+
 # Stow
 InstallApps "stow"
 echo "- Using stow for configurations"
@@ -71,14 +79,6 @@ if [[ -d ".dotfiles" ]]; then
 	stow --adopt .
 else
 	echo ".dotfiles directory not found"
-fi
-
-# Change the shell
-if [[ $SHELL =~ /zsh$ ]]; then
-	echo "- Shell is already set to zsh"
-else
-	echo "- Changing user shell to zsh"
-	chsh --shell "$(which zsh)" "$USER"
 fi
 
 echo "-- Script is done."
