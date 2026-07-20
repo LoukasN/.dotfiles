@@ -5,13 +5,15 @@ import Quickshell.Io
 
 Item {
     id: root
+    property bool hasBacklight: false
+    property string deviceName: ""
     property int brightness: 100
     property int maxBrightness: 100
     readonly property int percent: Math.round((brightness / maxBrightness) * 100)
 
     function setBrightness(percentValue: int) {
         const brightness = Math.max(0, Math.min(100, percentValue));
-        setProc.command = ["brightnessctl", "set", brightness + "%"];
+        setProc.command = ["brightnessctl", "-d", root.deviceName, "set", brightness + "%"];
         setProc.running = true;
     }
 
@@ -20,18 +22,18 @@ Item {
     }
 
     Process {
-        id: brightnessProc
-        command: ["cat", "/sys/class/backlight/amdgpu_bl1/brightness"]
+        id: detectProc
+        command: ["brightnessctl", "-m", "-l"]
         stdout: SplitParser {
-            onRead: data => root.brightness = parseInt(data)
-        }
-    }
-
-    Process {
-        id: maxProc
-        command: ["cat", "/sys/class/backlight/amdgpu_bl1/max_brightness"]
-        stdout: SplitParser {
-            onRead: data => root.maxBrightness = parseInt(data)
+            onRead: data => {
+                const fields = data.split(",");
+                if (fields.length >= 5 && fields[1] === "backlight") {
+                    root.deviceName = fields[0];
+                    root.hasBacklight = true;
+                    root.brightness = parseInt(fields[2]);
+                    root.maxBrightness = parseInt(fields[4]);
+                }
+            }
         }
     }
 
@@ -39,7 +41,7 @@ Item {
         id: udevProc
         command: ["udevadm", "monitor", "--udev", "--subsystem-match=backlight"]
         stdout: SplitParser {
-            onRead: data => brightnessProc.running = true
+            onRead: data => detectProc.running = true
         }
     }
 
@@ -49,9 +51,8 @@ Item {
         repeat: false
         triggeredOnStart: true
         onTriggered: {
+            detectProc.running = true;
             udevProc.running = true;
-            maxProc.running = true;
-            brightnessProc.running = true;
         }
     }
 }

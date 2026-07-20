@@ -46,5 +46,5 @@ QtObject {
     readonly property int thumbnailWidth: 192
     readonly property int thumbnailHeight: 108
     readonly property int maxGridHeight: 1024
-    readonly property int thumbnailColumns: 1
+    readonly property int thumbnailColumns: 3
 }

@@ -8,6 +8,7 @@ Item {
     id: root
 
     readonly property BluetoothAdapter adapter: Bluetooth.defaultAdapter
+    readonly property bool adapterExists: adapter
     readonly property bool powered: adapter ? adapter.enabled : false
     readonly property var devices: adapter ? adapter.devices.values : []
 

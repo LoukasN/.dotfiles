@@ -87,9 +87,13 @@ Scope {
                         anchors.centerIn: parent
                         spacing: Theme.widgetSpacing
 
-                        BacklightWidget {}
+                        BacklightWidget {
+                            visible: BacklightService.hasBacklight
+                        }
 
-                        DividerWidget {}
+                        DividerWidget {
+                            visible: BacklightService.hasBacklight
+                        }
 
                         AudioWidget {
                             parentWindow: panelWindow
@@ -102,9 +106,12 @@ Scope {
                             networkMenu: scope.networkMenu
                         }
 
-                        DividerWidget {}
+                        DividerWidget {
+                            visible: BluetoothService.adapterExists
+                        }
 
                         BluetoothWidget {
+                            visible: BluetoothService.adapterExists
                             parentWindow: panelWindow
                             bluetoothMenu: scope.bluetoothMenu
                         }
