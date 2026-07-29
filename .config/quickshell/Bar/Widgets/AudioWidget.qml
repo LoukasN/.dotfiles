@@ -21,6 +21,7 @@ Row {
             z: 1
             cursorShape: Qt.PointingHandCursor
             anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
             onWheel: wheel => {
                 output.scrollAccum += wheel.angleDelta.y;
                 if (Math.abs(output.scrollAccum) >= 120) {
@@ -30,8 +31,14 @@ Row {
                     output.scrollAccum = 0;
                 }
             }
-            onClicked: if (!pavuProc.running)
-                pavuProc.running = true
+            onClicked: mouse => {
+                if (mouse.button === Qt.LeftButton) {
+                    if (!pavuProc.running)
+                        pavuProc.running = true;
+                } else {
+                    AudioService.toggleOutputMute();
+                }
+            }
         }
 
         InfoPopup {
@@ -53,8 +60,15 @@ Row {
             z: 1
             cursorShape: Qt.PointingHandCursor
             anchors.fill: parent
-            onClicked: if (!pavuInputProc.running)
-                pavuInputProc.running = true
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onClicked: mouse => {
+                if (mouse.button === Qt.LeftButton) {
+                    if (!pavuInputProc.running)
+                        pavuInputProc.running = true;
+                } else {
+                    AudioService.toggleInputMute();
+                }
+            }
         }
 
         InfoPopup {
