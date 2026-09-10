@@ -39,8 +39,8 @@ QtObject {
     // Notification options
     readonly property int notificationWidth: 360
     readonly property int notificationIconSize: 36
-    readonly property int notificationTimeout: 5000
-    readonly property int notificationTimeoutUrgent: 60000
+    readonly property int defaultNotificationTimeout: 5000
+    readonly property int defaultNotificationTimeoutUrgent: 15000
 
     // Wallpaper menu options
     readonly property int thumbnailWidth: 192

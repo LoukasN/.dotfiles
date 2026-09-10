@@ -33,13 +33,25 @@ Rectangle {
 
     Timer {
         running: !card.isHistory && card.modelData.urgency !== QsNotifications.NotificationUrgency.Critical
-        interval: Theme.notificationTimeout
+        interval: {
+            const timeout = card.modelData.expireTimeout;
+            if (timeout > 0)
+                card.modelData.expireTimeout;
+            else
+                Theme.defaultNotificationTimeout;
+        }
         onTriggered: card.modelData.dismiss()
     }
 
     Timer {
         running: !card.isHistory && card.modelData.urgency === QsNotifications.NotificationUrgency.Critical
-        interval: Theme.notificationTimeoutUrgent
+        interval: {
+            const timeout = card.modelData.expireTimeout;
+            if (timeout > 0)
+                card.modelData.expireTimeout;
+            else
+                Theme.defaultNotificationTimeoutUrgent;
+        }
         onTriggered: card.modelData.dismiss()
     }
 

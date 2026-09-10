@@ -2,7 +2,6 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Services.Notifications as QsNotifications
-import QtQuick
 
 Singleton {
     id: root
@@ -24,7 +23,6 @@ Singleton {
                 body: notification.body,
                 appName: notification.appName,
                 urgency: notification.urgency,
-                time: Qt.formatDateTime(new Date(), "HH:mm")
             });
             root.history = updated;
         }
