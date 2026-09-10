@@ -8,7 +8,7 @@ QtObject {
     readonly property color barBg: "transparent"
     readonly property color accent: "#c5c9c5"
     readonly property color specialAccent: "#ff5148"
-    readonly property color hovered: "#181617"
+    readonly property color hovered: "#1c1c1c"
     readonly property int radius: 4
 
     readonly property color threshold: "#c9c5c9"
@@ -45,6 +45,8 @@ QtObject {
     // Wallpaper menu options
     readonly property int thumbnailWidth: 192
     readonly property int thumbnailHeight: 108
+    readonly property int gridSpacingHeight: 4
+    readonly property int gridSpacingWidth: 4
     readonly property int maxGridHeight: 1024
     readonly property int thumbnailColumns: 3
 }

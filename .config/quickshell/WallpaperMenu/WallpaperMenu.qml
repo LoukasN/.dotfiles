@@ -33,14 +33,14 @@ PopupMenu {
             menu.close();
         }
 
-        function moveFocus(dRow, dCol) {
-            const cols = Theme.thumbnailColumns;
-            const rowCount = Math.ceil(count / cols);
-            let row = Math.floor(focusedIndex / cols);
-            let col = focusedIndex % cols;
-            row = (row + dRow + rowCount) % rowCount;
-            col = (col + dCol + cols) % cols;
-            let index = row * cols + col;
+        function moveFocus(rowPosition, columnPosition) {
+            const columnCount = Theme.thumbnailColumns;
+            const rowCount = Math.ceil(count / columnCount);
+            let row = Math.floor(focusedIndex / columnCount);
+            let column = focusedIndex % columnCount;
+            row = (row + rowPosition + rowCount) % rowCount;
+            column = (column + columnPosition + columnCount) % columnCount;
+            let index = row * columnCount + column;
             if (index >= count)
                 index = count - 1;
             focusedIndex = index;
@@ -48,8 +48,8 @@ PopupMenu {
 
         GridView {
             id: grid
-            cellWidth: Theme.thumbnailWidth + Theme.menuButtonSpacingWidth
-            cellHeight: Theme.thumbnailHeight + Theme.menuButtonSpacingHeight
+            cellWidth: Theme.thumbnailWidth + Theme.gridSpacingWidth
+            cellHeight: Theme.thumbnailHeight + Theme.gridSpacingHeight
             implicitWidth: cellWidth * Theme.thumbnailColumns
             implicitHeight: Math.min(cellHeight * Math.ceil(WallpaperService.wallpapers.length / Theme.thumbnailColumns), Theme.maxGridHeight)
             clip: true
@@ -74,13 +74,24 @@ PopupMenu {
                     anchors.fill: parent
                     color: "transparent"
                     border.width: 2
-                    border.color: cell.index === focusItem.focusedIndex ? Theme.accent : cell.modelData === WallpaperService.current ? Theme.specialAccent : "transparent"
+                    border.color: {
+                        if (cell.index === focusItem.focusedIndex || mouseArea.containsMouse) {
+                            return Theme.accent;
+                        } else if (cell.modelData === WallpaperService.current) {
+                            return Theme.specialAccent;
+                        } else {
+                            return "transparent";
+                        }
+                    }
                 }
                 MouseArea {
+                    id: mouseArea
+                    hoverEnabled: true
                     anchors.fill: parent
                     onClicked: {
                         focusItem.focusedIndex = cell.index;
                         WallpaperService.setWallpaper(modelData);
+                        menu.close();
                     }
                 }
             }
@@ -90,7 +101,8 @@ PopupMenu {
     IpcHandler {
         target: "wallpaperMenu"
         function toggle() {
-            menu.toggle();
+            if (WallpaperService.wallpapers.length > 0)
+                menu.toggle();
         }
     }
 }
