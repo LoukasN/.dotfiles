@@ -204,10 +204,10 @@ hl.bind("SUPER + F12", function()
 	local powersave = (hl.get_config("animations.enabled") == false)
 	if powersave then
 		hl.exec_cmd("hyprctl reload")
-		hl.exec_cmd('notify-send "Animations enabled"')
+		hl.exec_cmd('notify-send -t 1000 "Animations enabled"')
 		return
 	else
-		hl.exec_cmd('notify-send "Animations disabled"')
+		hl.exec_cmd('notify-send -t 1000 "Animations disabled"')
 	end
 	hl.config({
 		animations = {
