@@ -89,8 +89,8 @@ PopupMenu {
                     Text {
                         id: label
                         anchors.centerIn: parent
-                        text: modelData.name + (modelData.connected ? " ✓" : "")
-                        color: modelData.connected ? Theme.specialAccent : Theme.fg
+                        text: parent.modelData.name + (parent.modelData.connected ? " ✓" : "")
+                        color: parent.modelData.connected ? Theme.specialAccent : Theme.fg
                         font.family: Theme.font
                         font.pixelSize: Theme.fontSize + 4
                         horizontalAlignment: Text.AlignHCenter
@@ -103,7 +103,7 @@ PopupMenu {
                         anchors.fill: parent
                         hoverEnabled: true
                         onClicked: {
-                            focusedItem.activate(index + 1);
+                            focusedItem.activate(parent.index + 1);
                             menu.close();
                         }
                     }

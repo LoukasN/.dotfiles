@@ -68,7 +68,7 @@ PopupMenu {
                     Text {
                         id: label
                         anchors.centerIn: parent
-                        text: modelData.label
+                        text: parent.modelData.label
                         color: Theme.fg
                         font.family: Theme.font
                         font.pixelSize: Theme.fontSize + 4
@@ -83,7 +83,7 @@ PopupMenu {
                         hoverEnabled: true
                         onClicked: {
                             menu.close();
-                            proc.command = modelData.cmd;
+                            proc.command = parent.modelData.cmd;
                             proc.running = true;
                         }
                     }
