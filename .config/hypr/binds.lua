@@ -102,21 +102,23 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(
 	"SUPER + RIGHT",
 	layout_bind({
-		dwindle = hl.dsp.window.resize({ x = 40, y = 0, relative = true, repeating = true }),
+		dwindle = hl.dsp.window.resize({ x = 40, y = 0, relative = true }),
 		scrolling = hl.dsp.layout("colresize +conf"),
-	})
+	}),
+	{ repeating = true }
 )
 
 hl.bind(
 	"SUPER + LEFT",
 	layout_bind({
-		dwindle = hl.dsp.window.resize({ x = -40, y = 0, relative = true, repeating = true }),
+		dwindle = hl.dsp.window.resize({ x = -40, y = 0, relative = true }),
 		scrolling = hl.dsp.layout("colresize -conf"),
-	})
+	}),
+	{ repeating = true }
 )
 
-hl.bind("SUPER + UP", hl.dsp.window.resize({ x = 0, y = 40, relative = true, repeating = true }))
-hl.bind("SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = -40, relative = true, repeating = true }))
+hl.bind("SUPER + UP", hl.dsp.window.resize({ x = 0, y = 40, relative = true }), { repeating = true })
+hl.bind("SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = -40, relative = true }), { repeating = true })
 
 -- Mouse Resizing
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
