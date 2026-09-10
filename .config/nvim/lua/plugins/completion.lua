@@ -54,6 +54,7 @@ return {
 					python = { "black" },
 					c = { "clang_format" },
 					cpp = { "clang_format" },
+					cs = { "clang_format" },
 					css = { "prettier" },
 					html = { "prettier" },
 					markdown = { "prettier" },

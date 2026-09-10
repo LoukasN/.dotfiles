@@ -63,7 +63,7 @@ return {
 				offset_encoding = "utf-8",
 				formatterMode = "typstyle",
 			})
-			vim.lsp.config("tsserver", {
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 			})
 
@@ -76,7 +76,35 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp", "gopls", "tinymist", "tsserver", "emmet_ls" })
+			vim.lsp.config("csharp_ls", {
+				capabilities = capabilities,
+				filetypes = { "cs" },
+
+				root_dir = function(bufnr, on_dir)
+					local root = vim.fs.root(bufnr, {
+						".slnx",
+						".sln",
+						".csproj",
+						"ProjectSettings",
+					})
+
+					if root then
+						on_dir(root)
+					end
+				end,
+			})
+
+			vim.lsp.enable({
+				"lua_ls",
+				"clangd",
+				"bashls",
+				"pylsp",
+				"gopls",
+				"tinymist",
+				"ts_ls",
+				"emmet_ls",
+				"csharp_ls",
+			})
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
