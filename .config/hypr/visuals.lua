@@ -3,7 +3,7 @@ hl.config({
 		gaps_in = 1,
 		gaps_out = 3,
 		border_size = 1,
-		col = { active_border = 0xffc5c9c5 },
+		col = { active_border = "#c5c9c5ff" },
 		allow_tearing = false,
 		layout = Layout,
 	},
@@ -16,7 +16,7 @@ hl.config({
 			enabled = true,
 			range = 4,
 			render_power = 3,
-			color = "rgba(0000001A)",
+			color = "#0000001A",
 		},
 
 		blur = {
