@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 import "../Services/"
@@ -12,6 +13,10 @@ Variants {
         id: root
         required property var modelData
         screen: modelData
+        color: "transparent"
+
+        WlrLayershell.layer: WlrLayer.Overlay
+
         anchors {
             top: true
             right: true
@@ -25,7 +30,6 @@ Variants {
         implicitWidth: Theme.notificationWidth
         implicitHeight: Math.max(1, column.implicitHeight)
         exclusionMode: ExclusionMode.Ignore
-        color: "transparent"
 
         ColumnLayout {
             id: column
