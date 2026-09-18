@@ -11,5 +11,5 @@ fi
 
 if [ -f "$screenshotPath" ]; then
     wl-copy --type image/png < "$screenshotPath"
-    notify-send  'Screenshot captured and copied to clipboard'
+    notify-send 'Screenshot captured' 'Screenshot captured and copied to clipboard'
 fi
