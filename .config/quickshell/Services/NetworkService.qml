@@ -18,11 +18,11 @@ Item {
 
     readonly property var wiredDevice: {
         const devices = Networking.devices.values;
-        for (let i = 0; i < devices.length; i++) {
-            if (devices[i].type === DeviceType.Wired)
-                return devices[i];
-        }
-        return null;
+        const wired = devices.filter(device => device.type === DeviceType.Wired);
+        if (wired.length === 0)
+            return null;
+        const connected = wired.find(device => device.connected);
+        return connected || wired[0];
     }
 
     readonly property var activeWifiNetwork: {
@@ -38,10 +38,10 @@ Item {
 
     // Bar
     readonly property string networkState: {
-        if (wifiDevice && wifiDevice.connected)
-            return "wifi";
         if (wiredDevice && wiredDevice.connected)
             return "ethernet";
+        if (wifiDevice && wifiDevice.connected)
+            return "wifi";
         return "disconnected";
     }
 
@@ -69,6 +69,20 @@ Item {
 
     onIfnameChanged: refreshIp()
     onNetworkStateChanged: refreshIp()
+
+    Connections {
+        target: root.wiredDevice
+        function onConnectedChanged() {
+            root.refreshIp();
+        }
+    }
+
+    Connections {
+        target: root.wifiDevice
+        function onConnectedChanged() {
+            root.refreshIp();
+        }
+    }
 
     function refreshIp() {
         if (networkState === "disconnected" || !ifname) {
