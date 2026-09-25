@@ -27,12 +27,12 @@ Item {
     }
 
     readonly property string outputIcon: {
-        if (!sink || outputMuted || outputVolume === 0)
-            return "";
         if (sinkType === "headphones")
             return "";
         if (sinkType === "bluetooth")
             return "";
+        if (!sink || outputMuted || outputVolume === 0)
+            return "";
         if (outputVolume > 50)
             return "";
         if (outputVolume > 0)
