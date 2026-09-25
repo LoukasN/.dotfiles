@@ -9,4 +9,6 @@ singleton AudioService AudioService.qml
 singleton NotificationService NotificationService.qml
 singleton WallpaperService WallpaperService.qml
 singleton BluetoothService BluetoothService.qml
+singleton BarState BarState.qml
 singleton CpuFreqService CpuFreqService.qml
+singleton Clipboard Clipboard.qml

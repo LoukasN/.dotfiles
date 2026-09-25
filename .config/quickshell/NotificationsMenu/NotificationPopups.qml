@@ -23,7 +23,13 @@ Variants {
         }
 
         margins {
-            top: Theme.topMargin + Theme.barHeight * 1.1
+            top: {
+                if (!BarState.visible || BarState.fullscreenWindow) {
+                    Theme.topMargin;
+                } else if (BarState.visible) {
+                    Theme.topMargin + Theme.barHeight * 1.1;
+                }
+            }
             right: Theme.rightMargin
         }
 

@@ -10,7 +10,7 @@ Rectangle {
     property bool isHistory: false
     signal removeRequested
     Layout.fillWidth: true
-    implicitHeight: Math.max(layout.implicitHeight + Theme.barPadding * 2, Theme.barHeight)
+    implicitHeight: layout.implicitHeight + Theme.barPadding * 2
     color: Theme.bg
     border.color: modelData.urgency === QsNotifications.NotificationUrgency.Critical ? Theme.critical : Theme.accent
     radius: Theme.radius

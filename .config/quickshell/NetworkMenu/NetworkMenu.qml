@@ -48,7 +48,6 @@ PopupMenu {
                 return;
             }
             const network = NetworkService.networks[index - 1];
-            console.log(network.connected);
             if (network.connected)
                 NetworkService.disconnectFromNetwork();
             if (network.secured && !network.saved) {

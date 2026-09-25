@@ -5,10 +5,9 @@ import "../Services/"
 
 PanelWindow {
     id: root
-
     visible: false
-
     color: "transparent"
+    exclusionMode: ExclusionMode.Ignore
 
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
@@ -36,7 +35,15 @@ PanelWindow {
     Rectangle {
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.topMargin: Theme.topMargin + 3
+        anchors.topMargin: {
+            HyprlandService.fullscreenWindow;
+            const isFullscreen = HyprlandService.isScreenFullscreen(root.screen);
+            if (!BarState.visible || isFullscreen) {
+                Theme.topMargin;
+            } else if (BarState.visible) {
+                Theme.topMargin + Theme.barHeight * 1.1;
+            }
+        }
         anchors.rightMargin: Theme.rightMargin
         implicitWidth: contentItem.implicitWidth + Theme.menuButtonSpacingWidth
         implicitHeight: contentItem.implicitHeight + Theme.menuButtonSpacingHeight

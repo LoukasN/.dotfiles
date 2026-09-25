@@ -10,6 +10,7 @@ PanelWindow {
     visible: false
     color: "transparent"
 
+    exclusionMode: ExclusionMode.Ignore
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
 
@@ -36,7 +37,7 @@ PanelWindow {
         Rectangle {
             anchors.top: parent.top
             anchors.right: parent.right
-            anchors.topMargin: Theme.topMargin
+            anchors.topMargin: (BarState.visible && !BarState.fullscreenWindow) ? Theme.topMargin + Theme.barHeight * 1.1 : Theme.topMargin
             anchors.rightMargin: Theme.rightMargin
             implicitWidth: Theme.notificationWidth
             implicitHeight: Math.min(root.height / 2, Math.max(105, row.implicitHeight + listView.contentHeight + 20))

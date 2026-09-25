@@ -10,14 +10,13 @@ import "./Widgets/"
 
 Scope {
     id: scope
-    property bool barVisible: true
     required property var networkMenu
     required property var bluetoothMenu
 
     IpcHandler {
         target: "bar"
         function toggle() {
-            scope.barVisible = !scope.barVisible;
+            BarState.visible = !BarState.visible;
         }
     }
 
@@ -29,7 +28,7 @@ Scope {
             required property var modelData
             screen: modelData
 
-            visible: scope.barVisible
+            visible: BarState.visible
 
             anchors {
                 top: true
@@ -67,7 +66,7 @@ Scope {
                             id: windowTitle
                             Layout.leftMargin: windowTitle.text === "" ? 0 : 8
                             Layout.rightMargin: windowTitle.text === "" ? 0 : 8
-                            Layout.maximumWidth: 800
+                            Layout.maximumWidth: Theme.maxTitleWidth
                         }
                     }
                 }

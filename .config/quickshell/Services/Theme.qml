@@ -21,7 +21,7 @@ QtObject {
 
     // Bar options
     readonly property int barHeight: 40
-    readonly property int topMargin: 2
+    readonly property int topMargin: 4
     readonly property int leftMargin: 4
     readonly property int rightMargin: 4
     readonly property int buttonWidth: 16
@@ -30,6 +30,7 @@ QtObject {
     readonly property int systemTraySpacing: 8
     readonly property int widgetSpacing: 4
     readonly property int dividerSidesPadding: 4
+    readonly property int maxTitleWidth: 800
 
     // Menu options
     readonly property int menuButtonSpacingHeight: 4
