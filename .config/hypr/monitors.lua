@@ -1,31 +1,32 @@
-require("variables")
-
 hl.monitor({
-	output = PrimaryMonitor,
+	output = "eDP-1",
 	mode = "1920x1080@60",
 	position = "0x0",
 	scale = "1",
 })
 
-hl.monitor({
-	output = SecondaryMonitor,
-	mode = "1920x1080@75",
-	position = "1920x0",
-	scale = "1",
-})
-
-hl.monitor({
-	output = "",
-	mode = "preffered",
-	position = "auto",
-	scale = "1",
-	mirror = PrimaryMonitor,
-})
+local mirrored = false
+hl.bind("SUPER + F7", function()
+	mirrored = not mirrored
+	if mirrored then
+		hl.monitor({
+			output = "",
+			mode = "highres@highrr",
+			position = "auto",
+			scale = "1",
+			mirror = "eDP-1",
+		})
+	else
+		hl.monitor({
+			output = "",
+			mode = "highres@highrr",
+			position = "auto",
+			scale = "1",
+			mirror = "none",
+		})
+	end
+end)
 
 -- Moving workspaces between monitors
-hl.bind("SUPER + SHIFT + LEFT", hl.dsp.workspace.move({ monitor = PrimaryMonitor }))
-hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.workspace.move({ monitor = SecondaryMonitor }))
-
--- Binding Workspaces to monitors
-hl.workspace_rule({ workspace = "1", monitor = PrimaryMonitor, default = true })
-hl.workspace_rule({ workspace = "2", monitor = SecondaryMonitor, default = true })
+hl.bind("SUPER + SHIFT + LEFT", hl.dsp.workspace.move({ monitor = "-1" }))
+hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.workspace.move({ monitor = "+1" }))

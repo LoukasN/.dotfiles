@@ -1,5 +1,3 @@
-require("variables")
-
 -- Per layout binds function
 local function layout_bind(bind_table)
 	return function()

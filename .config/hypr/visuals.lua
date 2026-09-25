@@ -5,7 +5,7 @@ hl.config({
 		border_size = 1,
 		col = { active_border = "#c5c9c5ff" },
 		allow_tearing = false,
-		layout = Layout,
+		layout = "dwindle",
 	},
 
 	decoration = {
