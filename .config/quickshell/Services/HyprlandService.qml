@@ -8,7 +8,7 @@ Item {
     id: root
     property string activeWindowTitle: ""
     property string keyboardLayout: ""
-    property bool fullscreenWindow: true
+    property bool fullscreenWindow: false
 
     function isScreenFullscreen(screen) {
         const monitor = Hyprland.monitorFor(screen);

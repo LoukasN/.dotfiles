@@ -37,7 +37,15 @@ PanelWindow {
         Rectangle {
             anchors.top: parent.top
             anchors.right: parent.right
-            anchors.topMargin: (BarState.visible && !BarState.fullscreenWindow) ? Theme.topMargin + Theme.barHeight * 1.1 : Theme.topMargin
+            anchors.topMargin: {
+                HyprlandService.fullscreenWindow;
+                const isFullscreen = HyprlandService.isScreenFullscreen(root.screen);
+                if (!BarState.visible || isFullscreen) {
+                    Theme.topMargin;
+                } else if (BarState.visible) {
+                    Theme.topMargin + Theme.barHeight * 1.1;
+                }
+            }
             anchors.rightMargin: Theme.rightMargin
             implicitWidth: Theme.notificationWidth
             implicitHeight: Math.min(root.height / 2, Math.max(105, row.implicitHeight + listView.contentHeight + 20))
