@@ -27,6 +27,8 @@ RowLayout {
             Rectangle {
                 anchors.fill: parent
                 color: worskpaceButton.hovered ? Theme.hovered : Theme.bg
+                anchors.topMargin: Theme.barHeight * 0.1
+                anchors.bottomMargin: Theme.barHeight * 0.1
             }
 
             Rectangle {
