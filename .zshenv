@@ -5,3 +5,4 @@ export EDITOR=nvim
 export BROWSER=firefox
 export MANPAGER="bat -l man -p"
 export GEM_HOME="$HOME/.gem"
+export GOPATH="$HOME/.go"
