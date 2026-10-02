@@ -6,25 +6,21 @@ hl.monitor({
 })
 
 local mirrored = false
+local function toggleMonitorMode()
+	hl.monitor({
+		output = "",
+		mode = "highres@highrr",
+		position = "auto",
+		scale = "1",
+		mirror = mirrored and "eDP-1" or "none",
+	})
+end
+
+toggleMonitorMode()
+
 hl.bind("SUPER + F7", function()
 	mirrored = not mirrored
-	if mirrored then
-		hl.monitor({
-			output = "",
-			mode = "highres@highrr",
-			position = "auto",
-			scale = "1",
-			mirror = "eDP-1",
-		})
-	else
-		hl.monitor({
-			output = "",
-			mode = "highres@highrr",
-			position = "auto",
-			scale = "1",
-			mirror = "none",
-		})
-	end
+	toggleMonitorMode()
 end)
 
 -- Moving workspaces between monitors
