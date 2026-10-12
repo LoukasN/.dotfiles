@@ -34,7 +34,7 @@ QtObject {
 
     // Menu options
     readonly property int menuButtonSpacingHeight: 4
-    readonly property int menuButtonSpacingWidth: 12
+    readonly property int menuButtonSpacingWidth: 4
     readonly property int menuButtonGap: 0
 
     // Notification options
