@@ -33,7 +33,8 @@ hl.config({
 			natural_scroll = true,
 			tap_to_click = true,
 		},
-		sensitivity = 0,
+		accel_profile = "flat",
+		sensitivity = 0.3,
 		numlock_by_default = true,
 		scroll_method = "2fg",
 	},
@@ -49,7 +50,6 @@ hl.gesture({
 	action = "workspace",
 	inactive_timeout = 30,
 })
-
 --[[
  _                            _       
 | |    __ _ _   _  ___  _   _| |_ ___ 
