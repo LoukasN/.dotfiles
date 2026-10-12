@@ -25,7 +25,7 @@ Item {
             if (BluetoothService.devices[i].connected) {
                 const name = BluetoothService.devices[i].name;
                 const battery = BluetoothService.devices[i].battery;
-                connectedDeviceInfo.push(name + " " + battery * 100 + "%\n");
+                connectedDeviceInfo.push(name + " " + Math.round(battery * 100) + "%\n");
                 isDeviceConnected = true;
             }
         }
