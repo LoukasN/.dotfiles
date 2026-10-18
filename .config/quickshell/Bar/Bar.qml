@@ -140,9 +140,9 @@ Scope {
 
                         IdleInhibitorWidget {
                             id: inhibitorWidget
-                            active: idleInhibitor.enabled
+                            active: BarState.idleInhibited
                             onToggled: {
-                                idleInhibitor.enabled = !idleInhibitor.enabled;
+                                BarState.idleInhibited = !BarState.idleInhibited;
                             }
                         }
 
