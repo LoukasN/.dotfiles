@@ -85,10 +85,11 @@ Item {
     }
 
     function refreshIp() {
+        ipaddr = "";
         if (networkState === "disconnected" || !ifname) {
-            ipaddr = "";
             return;
         }
+        ipProc.running = false;
         ipProc.command = ["sh", "-c", "ip -4 -o addr show " + ifname + " 2>/dev/null | awk '{print $4}' | head -1"];
         ipProc.running = true;
     }
@@ -131,6 +132,12 @@ Item {
     function scan() {
         if (wifiDevice)
             wifiDevice.scannerEnabled = true;
+    }
+
+    function stopScan() {
+        if (wifiDevice) {
+            wifiDevice.scannerEnabled = false;
+        }
     }
 
     function toggleWifi() {

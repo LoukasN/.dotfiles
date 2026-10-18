@@ -10,11 +10,15 @@ import "../Services/"
 PopupMenu {
     id: menu
 
-    onVisibleChanged: if (visible) {
-        NetworkService.scan();
-        focusedItem.mode = "list";
-        focusedItem.focusedIndex = 0;
-        passwordField.text = "";
+    onVisibleChanged: {
+        if (visible) {
+            NetworkService.scan();
+            focusedItem.mode = "list";
+            focusedItem.focusedIndex = 0;
+            passwordField.text = "";
+        } else {
+            NetworkService.stopScan();
+        }
     }
 
     Item {
@@ -30,9 +34,11 @@ PopupMenu {
         implicitHeight: column.implicitHeight
 
         Keys.onEscapePressed: {
-            if (mode === "password")
+            if (mode === "password") {
+                passwordField.text = "";
                 mode = "list";
-            else
+                forceActiveFocus();
+            } else
                 menu.close();
         }
         Keys.onUpPressed: if (mode === "list")
@@ -42,15 +48,23 @@ PopupMenu {
         Keys.onReturnPressed: if (mode === "list")
             activate(focusedIndex)
 
+        property string pendingSsid: ""
+
         function activate(index) {
             if (index === 0) {
                 NetworkService.toggleWifi();
                 return;
             }
             const network = NetworkService.networks[index - 1];
-            if (network.connected)
+            if (!network) {
+                return;
+            }
+            if (network.connected) {
                 NetworkService.disconnectFromNetwork();
+                return;
+            }
             if (network.secured && !network.saved) {
+                pendingSsid = network.ssid;
                 mode = "password";
                 passwordField.forceActiveFocus();
             } else {
@@ -126,9 +140,10 @@ PopupMenu {
                 echoMode: TextInput.Password
                 placeholderText: "Password"
                 onAccepted: {
-                    const network = NetworkService.networks[focusedItem.focusedIndex - 1];
-                    NetworkService.connectToNetwork(network.ssid, passwordField.text);
+                    NetworkService.connectToNetwork(focusedItem.pendingSsid, text);
+                    text = "";
                     focusedItem.mode = "list";
+                    focusedItem.forceActiveFocus();
                 }
             }
         }
