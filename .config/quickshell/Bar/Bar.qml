@@ -135,6 +135,7 @@ Scope {
 
                         IdleInhibitor {
                             id: idleInhibitor
+                            enabled: BarState.idleInhibited
                             window: panelWindow
                         }
 
