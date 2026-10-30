@@ -39,7 +39,7 @@ hl.config({
 		scroll_method = "2fg",
 	},
 	cursor = {
-		inactive_timeout = 30,
+		inactive_timeout = 20,
 		no_hardware_cursors = 1,
 	},
 })
@@ -48,7 +48,7 @@ hl.gesture({
 	fingers = 3,
 	direction = "horizontal",
 	action = "workspace",
-	inactive_timeout = 30,
+	inactive_timeout = 20,
 })
 --[[
  _                            _       
@@ -65,7 +65,6 @@ hl.config({
 		force_split = 2,
 		smart_split = false,
 		smart_resizing = false,
-		special_scale_factor = 0.98,
 	},
 	scrolling = {
 		wrap_focus = false,

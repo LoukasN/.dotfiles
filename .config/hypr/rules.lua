@@ -1,3 +1,7 @@
+-- Special workspace rules
+hl.workspace_rule({ workspace = "special:scratchpad", gaps_out = 12, persistent = true, layout = "scrolling" })
+hl.workspace_rule({ workspace = "special:media", gaps_out = 12, persistent = true })
+
 -- P-P
 hl.window_rule({ match = { title = "^Picture-in-Picture" }, float = true })
 hl.window_rule({ match = { title = "^Picture-in-Picture" }, pin = true })
@@ -15,7 +19,7 @@ hl.window_rule({ match = { title = ".*- Twitch —.*" }, no_dim = true })
 hl.window_rule({ match = { title = "Netflix.*" }, no_dim = true })
 hl.window_rule({ match = { title = ".*| Disney+.*" }, no_dim = true })
 
--- Virtual machine workspace 10
+-- Virtual machine workspace 10 
 hl.window_rule({ match = { class = "virt-manager" }, workspace = 10 })
 hl.window_rule({ match = { class = "virt-manager" }, fullscreen = true })
 

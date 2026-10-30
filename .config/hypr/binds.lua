@@ -140,13 +140,10 @@ end
 -- Scratchpad implementation
 hl.bind("SUPER + MINUS", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind("SUPER + SHIFT + MINUS", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
-hl.workspace_rule({ workspace = "special:scratchpad", persistent = true })
-hl.workspace_rule({ workspace = "special:scratchpad", layout = "scrolling" })
 
 -- Music special workspace
 hl.bind("SUPER + M", hl.dsp.workspace.toggle_special("media"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.window.move({ workspace = "special:media", follow = false }))
-hl.workspace_rule({ workspace = "special:media", persistent = true })
 
 --[[
 #  _____      _                 
