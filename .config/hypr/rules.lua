@@ -1,6 +1,6 @@
 -- Special workspace rules
-hl.workspace_rule({ workspace = "special:scratchpad", gaps_out = 12, persistent = true, layout = "scrolling" })
-hl.workspace_rule({ workspace = "special:media", gaps_out = 12, persistent = true })
+hl.workspace_rule({ workspace = "special:scratchpad", gaps_out = 12, gaps_in = 6, persistent = true, layout = "scrolling" })
+hl.workspace_rule({ workspace = "special:media", gaps_out = 12, gaps_in = 6, persistent = true })
 
 -- P-P
 hl.window_rule({ match = { title = "^Picture-in-Picture" }, float = true })
