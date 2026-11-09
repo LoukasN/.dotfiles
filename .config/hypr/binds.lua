@@ -188,8 +188,8 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -n2 set 1%+"), { l
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -n2 set 1%-"), { locked = true, repeating = true })
 
 -- Screenshot using grim and slurp
-hl.bind("PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot"), { locked = true, repeating = true })
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot select"), { locked = true, repeating = true })
+hl.bind("PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot"), { locked = true })
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("bash ~/.local/bin/screenshot select"), { locked = true })
 
 -- Lock on lid close
 hl.bind("switch:on:Lid", hl.dsp.exec_cmd("systemctl suspend"))
