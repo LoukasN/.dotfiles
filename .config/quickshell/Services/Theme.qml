@@ -20,7 +20,7 @@ QtObject {
     readonly property int fontSize: 15
 
     // Bar options
-    readonly property int barHeight: 40
+    readonly property int barHeight: 36
     readonly property int topMargin: 4
     readonly property int leftMargin: 4
     readonly property int rightMargin: 4
