@@ -10,7 +10,10 @@ Item {
     readonly property BluetoothAdapter adapter: Bluetooth.defaultAdapter
     readonly property bool adapterExists: adapter
     readonly property bool powered: adapter ? adapter.enabled : false
-    readonly property var devices: adapter ? adapter.devices.values : []
+    readonly property var devices: {
+        if (powered)
+            adapter ? adapter.devices.values : [];
+    }
 
     function togglePower() {
         if (adapter)
