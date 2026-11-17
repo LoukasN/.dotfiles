@@ -12,9 +12,29 @@ Item {
     required property PanelWindow parentWindow
     required property var networkMenu
 
+    readonly property string tailnetIpText: {
+        if (Tailscale.tailscaleUp)
+            return "\n" + Tailscale.tailnetIp;
+        return "";
+    }
+
+    readonly property string tailscaleText: {
+        if (Tailscale.tailscaleUp)
+            return " 󰖂";
+        return "";
+    }
+
+    readonly property string text: {
+        if (NetworkService.networkState === "wifi")
+            return " (" + NetworkService.signalStrength + "%)" + tailscaleText;
+        if (NetworkService.networkState === "ethernet")
+            return "󰈀" + tailscaleText;
+        return "⚠";
+    }
+
     Text {
         id: network
-        text: NetworkService.networkState === "wifi" ? "" + " (" + (NetworkService.signalStrength) + "%)" : NetworkService.networkState === "ethernet" ? "󰈀" : "⚠"
+        text: root.text
         color: NetworkService.networkState === "disconnected" ? Theme.critical : Theme.fg
         font.family: Theme.font
         font.pixelSize: Theme.fontSize
@@ -24,7 +44,7 @@ Item {
     InfoPopup {
         anchors.fill: parent
         parentWindow: root.parentWindow
-        text: NetworkService.info
+        text: NetworkService.info + root.tailnetIpText
         enabled: true
     }
 

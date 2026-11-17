@@ -5,6 +5,7 @@ singleton HyprlandService HyprlandService.qml
 singleton BatteryService BatteryService.qml
 singleton BacklightService BacklightService.qml
 singleton NetworkService NetworkService.qml
+singleton Tailscale Tailscale.qml
 singleton AudioService AudioService.qml
 singleton NotificationService NotificationService.qml
 singleton WallpaperService WallpaperService.qml
