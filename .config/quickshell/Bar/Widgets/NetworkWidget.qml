@@ -20,7 +20,7 @@ Item {
 
     readonly property string tailscaleText: {
         if (Tailscale.tailscaleUp)
-            return " 󰖂";
+            return " 🖧";
         return "";
     }
 
