@@ -26,3 +26,8 @@ end)
 -- Moving workspaces between monitors
 hl.bind("SUPER + SHIFT + LEFT", hl.dsp.workspace.move({ monitor = "-1" }))
 hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.workspace.move({ monitor = "+1" }))
+
+-- Lock on lid close
+hl.bind("switch:on:Lid Switch", function()
+	hl.dsp.exec_cmd("systemctl suspend")
+end)
